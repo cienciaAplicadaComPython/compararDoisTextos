@@ -19,4 +19,6 @@ botaoFoiSelecionado = st.button('Faça a mágica')
 if botaoFoiSelecionado:
   if not(entradaDeTextoPrimaria or entradaDeTextoSecundaria):
     'Anexe os dois arquivos!'
+  else:
+    'Eis a mágica!'
   
