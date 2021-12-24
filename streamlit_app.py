@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 st.title('Tenho vocabulário para isso?')
 
@@ -20,6 +21,6 @@ if botaoFoiSelecionado:
   if not(entradaDeTextoPrimaria and entradaDeTextoSecundaria):
     'Anexe os dois arquivos!'
   else:
-    st.table(entradaDeTextoPrimaria)
-    st.table(entradaDeTextoSecundaria)    
+    dfPrimario = pd.read_csv('entradaDeTextoPrimaria')
+    dfSecundario = pd.read_csv('entradaDeTextoSecundaria')
   
