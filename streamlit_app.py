@@ -11,5 +11,11 @@ st.title('Tenho vocabulário para isso?')
 
 st.subheader('Use o app!')
 
-entradaDeTextoPrimaria = st.file_uploader('Anexa o primeiro arquivo .txt com as palavras separadas por espaço:', type= ['txt'])
-entradaDeTextoSecundaria = st.file_uploader('Anexa o segundo arquivo .txt com as palavras separadas por espaço:', type= ['txt'])
+entradaDeTextoPrimaria = st.file_uploader('Anexe o primeiro arquivo .txt com as palavras separadas por espaço:', type= ['txt'])
+entradaDeTextoSecundaria = st.file_uploader('Anexe o segundo arquivo .txt com as palavras separadas por espaço:', type= ['txt'])
+
+botaoFoiSelecionado = st.button('Faça a mágica', on_click = compararAsEntradas(entradaDeTextoPrimaria, entradaDeTextoSecundaria))
+
+def compararAsEntradas(entradaDeTextoPrimaria, entradaDeTextoSecundaria):
+  'Eis os resultado:'
+  
