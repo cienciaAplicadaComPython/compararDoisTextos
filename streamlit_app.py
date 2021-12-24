@@ -20,5 +20,6 @@ if botaoFoiSelecionado:
   if not(entradaDeTextoPrimaria and entradaDeTextoSecundaria):
     'Anexe os dois arquivos!'
   else:
-    'Eis a mágica!'
+    st.table(entradaDeTextoPrimaria)
+    st.table(entradaDeTextoSecundaria)    
   
