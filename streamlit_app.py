@@ -16,6 +16,6 @@ entradaDeTextoSecundaria = st.file_uploader('Anexe o segundo arquivo .txt com as
 
 botaoFoiSelecionado = st.button('Faça a mágica')
 
-if botaoFoiSelecionado:
-  'Eis os resultado:'
+if botaoFoiSelecionado and entradaDeTextoPrimaria and entradaDeTextoSecundaria):
+  'Anexe os dois arquivos!'
   
