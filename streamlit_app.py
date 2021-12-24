@@ -8,3 +8,8 @@ st.title('Tenho vocabulário para isso?')
 '\ti) Comparar os vocabulários ensinado e de uma música para aulas de inglês;'
 '\tii) Encontrar palavras desconhecidas em um texto;'
 '\tiii) Antecipar o vocabulário necessário para um filme.'
+
+st.subheader('Use o app!')
+
+entradaDeTextoPrimaria = st.file_uploader('Anexa o primeiro arquivo .txt com as palavras separadas por espaço:', type= ['txt'])
+entradaDeTextoSecundaria = st.file_uploader('Anexa o segundo arquivo .txt com as palavras separadas por espaço:', type= ['txt'])
