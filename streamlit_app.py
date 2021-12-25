@@ -11,9 +11,9 @@ st.title('Tenho vocabulário para isso?')
 '\tiii) Antecipar o vocabulário necessário para um filme.'
 
 st.subheader('Use o app!')
-
-entradaDeTextoPrimaria = st.file_uploader('Anexe o primeiro arquivo com as palavras separadas por linhas:', type= ['csv, txt'])
-entradaDeTextoSecundaria = st.file_uploader('Anexe o segundo arquivo com as palavras separadas por linhas:', type= ['csv, txt'])
+'Anexe o primeiro arquivo com as palavras separadas por linhas:'
+entradaDeTextoPrimaria = st.file_uploader(type= ['csv, txt'])
+entradaDeTextoSecundaria = st.file_uploader(type= ['csv, txt'])
 
 botaoFoiSelecionado = st.button('Faça a mágica')
 
@@ -29,10 +29,10 @@ if botaoFoiSelecionado:
       'casa\nlar\nprédio'
     
     else:    
-    'As palavras do segundo arquivo que estão presentes no primeiro:'
-    dfComPalavrasComuns = dataframePrimaria.compare(dataframeSecundaria, keep_shape = True, keep_equal = True)
-    dfComPalavrasComuns
-    
-    'As palavras do segundo arquivo que são diferentes do primeiro:'
-    dfComPalavrasDiferentes = dataframePrimaria.compare(dataframeSecundaria, keep_shape = True)
-    dfComPalavrasDiferentes
+      'As palavras do segundo arquivo que estão presentes no primeiro:'
+      dfComPalavrasComuns = dataframePrimaria.compare(dataframeSecundaria, keep_shape = True, keep_equal = True)
+      dfComPalavrasComuns
+
+      'As palavras do segundo arquivo que são diferentes do primeiro:'
+      dfComPalavrasDiferentes = dataframePrimaria.compare(dataframeSecundaria, keep_shape = True)
+      dfComPalavrasDiferentes
