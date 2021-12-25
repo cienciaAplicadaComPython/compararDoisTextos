@@ -27,7 +27,8 @@ if botaoFoiSelecionado:
       dataframePrimaria = dataframePrimaria.stack()
     if dataframeSecundaria.shape[1] > 1:
       dataframeSecundaria = dataframeSecundaria.stack()
-      
+
+    dataframeSecundaria = dataframeSecundaria.drop([:, 1])
     'Dfs dimensões:'
     dataframePrimaria
     dataframeSecundaria
