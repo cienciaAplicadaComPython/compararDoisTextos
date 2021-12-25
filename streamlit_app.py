@@ -28,6 +28,8 @@ if botaoFoiSelecionado:
     #if dataframeSecundaria.shape[1] > 1:
     #  for colunas in dataframeSecundaria.columns:
     #    for linhas in dataframeSecundaria.rows:
+    dataframePrimaria
+    dataframeSecundaria
     
     'As palavras do segundo arquivo que estão presentes no primeiro:'
     dfComPalavrasComuns = dataframePrimaria.compare(dataframeSecundaria, keep_shape = True, keep_equal = True)
