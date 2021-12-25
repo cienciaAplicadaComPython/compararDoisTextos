@@ -27,5 +27,9 @@ if botaoFoiSelecionado:
       dataframePrimaria = dataframePrimaria.stack()
     if dataframeSecundaria.shape[1] > 1:
       dataframeSecundaria = dataframeSecundaria.stack()
-    dataframePrimaria
-    dataframeSecundaria
+    
+    'As palavras do segundo arquivo que estão presentes no primeiro:'
+    dataframePrimaria.compare(dataframeSecundaria, keep_shape = true, keep_equal = true)
+    
+    'As palavras do segundo arquivo que diferentes do primeiro:'
+    dataframePrimaria.compare(dataframeSecundaria, keep_shape = true)
