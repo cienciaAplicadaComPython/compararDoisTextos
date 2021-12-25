@@ -29,7 +29,7 @@ if botaoFoiSelecionado:
       dataframeSecundaria = dataframeSecundaria.stack()
     
     'As palavras do segundo arquivo que estão presentes no primeiro:'
-    dataframePrimaria.compare(dataframeSecundaria, keep_shape = true, keep_equal = true)
+    dataframePrimaria.compare(dataframeSecundaria, keep_shape = True, keep_equal = True)
     
     'As palavras do segundo arquivo que diferentes do primeiro:'
-    dataframePrimaria.compare(dataframeSecundaria, keep_shape = true)
+    dataframePrimaria.compare(dataframeSecundaria, keep_shape = True)
