@@ -33,9 +33,9 @@ if botaoFoiSelecionado:
     dataframeSecundaria
     
     'As palavras do segundo arquivo que estão presentes no primeiro:'
-    dfComPalavrasComuns = dataframePrimaria.compare(dataframeSecundaria, align_axis = 0, keep_shape = True, keep_equal = True)
+    dfComPalavrasComuns = dataframePrimaria.compare(dataframeSecundaria, keep_shape = True, keep_equal = True)
     dfComPalavrasComuns
     
     'As palavras do segundo arquivo que são diferentes do primeiro:'
-    dfComPalavrasDiferentes = dataframePrimaria.compare(dataframeSecundaria, align_axis = 0, keep_shape = True)
+    dfComPalavrasDiferentes = dataframePrimaria.compare(dataframeSecundaria, keep_shape = True)
     dfComPalavrasDiferentes
