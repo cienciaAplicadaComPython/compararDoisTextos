@@ -24,9 +24,9 @@ if botaoFoiSelecionado:
     dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, sep = ' ', header = None)
     dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, sep = ' ', header = None)
     #if dataframePrimaria.shape[1] > 1:
-    dataframePrimaria = dataframePrimaria.stack()
+    #dataframePrimaria = dataframePrimaria.stack()
     #if dataframeSecundaria.shape[1] > 1:
-    dataframeSecundaria = dataframeSecundaria.stack()
+    #dataframeSecundaria = dataframeSecundaria.stack()
       
     'Dfs dimensões:'
     dataframePrimaria
