@@ -29,8 +29,8 @@ if botaoFoiSelecionado:
       dataframeSecundaria = dataframeSecundaria.stack()
     
     'As palavras do segundo arquivo que estão presentes no primeiro:'
-    #dfComPalavrasComuns = dataframePrimaria.compare(dataframeSecundaria, align_axis = 0, keep_shape = True, keep_equal = True)
-    #dfComPalavrasComuns
+    dfComPalavrasComuns = dataframePrimaria.compare(dataframePrimaria, align_axis = 0, keep_shape = True, keep_equal = True)
+    dfComPalavrasComuns
     
     'As palavras do segundo arquivo que diferentes do primeiro:'
     dfComPalavrasDiferentes = dataframePrimaria.compare(dataframeSecundaria, align_axis = 0, keep_shape = True)
