@@ -26,4 +26,5 @@ if botaoFoiSelecionado:
     if dataframePrimaria.shape[1] > 1:
       'Dataframe com mais de uma coluna!'
     if dataframeSecundaria.shape[1] > 1:
-      'Dataframe com mais de uma coluna!'    
+      dataframeSecundaria.stack()
+      dataframeSecundaria
