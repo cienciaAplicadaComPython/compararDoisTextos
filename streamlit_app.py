@@ -23,13 +23,11 @@ if botaoFoiSelecionado:
   else:
     dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, sep = ' ', header = None)
     dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, sep = ' ', header = None)
-    'Dfs colunas:'
-    dataframePrimaria.columns
-    dataframeSecundaria.columns
     if dataframePrimaria.shape[1] > 1:
       dataframePrimaria = dataframePrimaria.stack()
     if dataframeSecundaria.shape[1] > 1:
-      dataframeSecundaria = dataframeSecundaria.stack()
+      for colunas in dataframeSecundaria.columns:
+        colunas
     
     'As palavras do segundo arquivo que estão presentes no primeiro:'
     dfComPalavrasComuns = dataframePrimaria.compare(dataframeSecundaria, keep_shape = True, keep_equal = True)
