@@ -24,7 +24,8 @@ if botaoFoiSelecionado:
     dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, sep = ' ', header = None)
     dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, sep = ' ', header = None)
     if dataframePrimaria.shape[1] > 1:
-      'Dataframe com mais de uma coluna!'
+      dataframePrimaria = dataframePrimaria.stack()
     if dataframeSecundaria.shape[1] > 1:
       dataframeSecundaria = dataframeSecundaria.stack()
-      dataframeSecundaria
+    dataframePrimaria
+    dataframeSecundaria
