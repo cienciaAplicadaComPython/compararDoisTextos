@@ -11,9 +11,9 @@ st.title('Tenho vocabulário para isso?')
 '\tiii) Antecipar o vocabulário necessário para um filme.'
 
 st.subheader('Use o app!')
-'Anexe o primeiro arquivo com as palavras separadas por linhas:'
-entradaDeTextoPrimaria = st.file_uploader(type= ['csv, txt'])
-entradaDeTextoSecundaria = st.file_uploader(type= ['csv, txt'])
+'Anexe os arquivos com as palavras separadas por linhas:'
+entradaDeTextoPrimaria = st.file_uploader('Primeiro arquivo:', type= ['csv, txt'])
+entradaDeTextoSecundaria = st.file_uploader('Segundo arquivo', type= ['csv, txt'])
 
 botaoFoiSelecionado = st.button('Faça a mágica')
 
