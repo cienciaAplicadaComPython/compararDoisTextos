@@ -29,8 +29,8 @@ if botaoFoiSelecionado:
       dataframeSecundaria = dataframeSecundaria.stack()
       
     'Dfs dimensões:'
-    dataframePrimaria
-    dataframeSecundaria
+    dataframePrimaria.dim
+    dataframeSecundaria.dim
     
     'As palavras do segundo arquivo que estão presentes no primeiro:'
     dfComPalavrasComuns = dataframePrimaria.compare(dataframeSecundaria, align_axis = 0, keep_shape = True, keep_equal = True)
