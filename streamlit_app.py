@@ -23,6 +23,16 @@ if botaoFoiSelecionado:
   else:
     dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, sep = ' ', header = None)
     dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, sep = ' ', header = None)
+    'Dataframe valores numpy:'
+    dataframePrimaria.values
+    dataframeSecundaria.values
+    'Dataframe eixos:'
+    dataframePrimaria.axes
+    dataframeSecundaria.axes
+    'Dataframe dimensões:'
+    dataframePrimaria.ndim
+    dataframeSecundaria.ndim
+    'Dataframe formatos:'
     dataframePrimaria.shape
     dataframeSecundaria.shape
     
