@@ -26,7 +26,7 @@ if botaoFoiSelecionado:
     
     if (dataframePrimaria.shape[1]  > 1) or (dataframeSecundaria.shape[1] > 1):
       'As palavras devem ser separadas em diferentes linhas. Por exemplo:'
-      'casa\nlar\nprédio'
+      df = pd.DataFrame(data = {'col1': [1, 2], 'col2': [3, 4]})
     
     else:    
       'As palavras do segundo arquivo que estão presentes no primeiro:'
