@@ -23,10 +23,10 @@ if botaoFoiSelecionado:
   else:
     dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, sep = ' ', header = None)
     dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, sep = ' ', header = None)
-    if dataframePrimaria.shape[1] > 1:
-      dataframePrimaria = dataframePrimaria.stack()
-    if dataframeSecundaria.shape[1] > 1:
-      dataframeSecundaria = dataframeSecundaria.stack()
+    #if dataframePrimaria.shape[1] > 1:
+    dataframePrimaria = dataframePrimaria.stack()
+    #if dataframeSecundaria.shape[1] > 1:
+    dataframeSecundaria = dataframeSecundaria.stack()
       
     'Dfs dimensões:'
     dataframePrimaria.ndim
@@ -36,6 +36,6 @@ if botaoFoiSelecionado:
     dfComPalavrasComuns = dataframePrimaria.compare(dataframeSecundaria, align_axis = 0, keep_shape = True, keep_equal = True)
     dfComPalavrasComuns
     
-    'As palavras do segundo arquivo que diferentes do primeiro:'
+    'As palavras do segundo arquivo que são diferentes do primeiro:'
     dfComPalavrasDiferentes = dataframePrimaria.compare(dataframeSecundaria, align_axis = 0, keep_shape = True)
     dfComPalavrasDiferentes
