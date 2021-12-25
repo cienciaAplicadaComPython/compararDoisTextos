@@ -12,8 +12,8 @@ st.title('Tenho vocabulário para isso?')
 
 st.subheader('Use o app!')
 
-entradaDeTextoPrimaria = st.file_uploader('Anexe o primeiro arquivo .txt com as palavras separadas por espaço ou quebra de linha:', type= ['txt'])
-entradaDeTextoSecundaria = st.file_uploader('Anexe o segundo arquivo .txt com as palavras separadas por espaço ou quebra de linha:', type= ['txt'])
+entradaDeTextoPrimaria = st.file_uploader('Anexe o primeiro arquivo com as palavras separadas por linhas:', type= ['csv, txt'])
+entradaDeTextoSecundaria = st.file_uploader('Anexe o segundo arquivo com as palavras separadas por linhas:', type= ['csv, txt'])
 
 botaoFoiSelecionado = st.button('Faça a mágica')
 
@@ -23,14 +23,12 @@ if botaoFoiSelecionado:
   else:
     dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None, engine = 'python')
     dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None, engine = 'python')
-    #if dataframePrimaria.shape[1] > 1:
-    #  dataframePrimaria = dataframePrimaria.stack()
-    #if dataframeSecundaria.shape[1] > 1:
-    #  for colunas in dataframeSecundaria.columns:
-    #    for linhas in dataframeSecundaria.rows:
-    dataframePrimaria
-    dataframeSecundaria
     
+    if (dataframePrimaria.shape[1]  > 1) or (dataframeSecundaria.shape[1] > 1):
+      'As palavras devem ser separadas em diferentes linhas. Por exemplo:'
+      'casa\nlar\nprédio'
+    
+    else:    
     'As palavras do segundo arquivo que estão presentes no primeiro:'
     dfComPalavrasComuns = dataframePrimaria.compare(dataframeSecundaria, keep_shape = True, keep_equal = True)
     dfComPalavrasComuns
