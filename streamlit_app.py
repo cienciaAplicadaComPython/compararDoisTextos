@@ -21,8 +21,8 @@ if botaoFoiSelecionado:
   if not(entradaDeTextoPrimaria and entradaDeTextoSecundaria):
     'Anexe os dois arquivos!'
   else:
-    dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None, squeeze = True, engine = 'python')
-    dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None, squeeze = True, engine = 'python')
+    dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None, engine = 'python')
+    dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None, engine = 'python')
     
     if (dataframePrimaria.shape[1]  > 1) or (dataframeSecundaria.shape[1] > 1):
       'As palavras devem ser separadas em diferentes linhas. Por exemplo:'
