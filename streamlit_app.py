@@ -21,6 +21,8 @@ if botaoFoiSelecionado:
   if not(entradaDeTextoPrimaria and entradaDeTextoSecundaria):
     'Anexe os dois arquivos!'
   else:
-    dataframe = pd.read_csv(entradaDeTextoPrimaria)
-    st.write(dataframe)
+    dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria)
+    st.write(dataframePrimaria)
+    dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria)
+    st.write(dataframeSecundaria)
   
