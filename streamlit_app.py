@@ -21,13 +21,13 @@ if botaoFoiSelecionado:
   if not(entradaDeTextoPrimaria and entradaDeTextoSecundaria):
     'Anexe os dois arquivos!'
   else:
-    dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, sep = ' ', header = None)
-    dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, sep = ' ', header = None)
-    if dataframePrimaria.shape[1] > 1:
-      dataframePrimaria = dataframePrimaria.stack()
-    if dataframeSecundaria.shape[1] > 1:
-      for colunas in dataframeSecundaria.columns:
-        colunas
+    dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, sep = ' ', header = None, squeeze = True)
+    dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, sep = ' ', header = None, squeeze = True)
+    #if dataframePrimaria.shape[1] > 1:
+    #  dataframePrimaria = dataframePrimaria.stack()
+    #if dataframeSecundaria.shape[1] > 1:
+    #  for colunas in dataframeSecundaria.columns:
+    #    for linhas in dataframeSecundaria.rows:
     
     'As palavras do segundo arquivo que estão presentes no primeiro:'
     dfComPalavrasComuns = dataframePrimaria.compare(dataframeSecundaria, keep_shape = True, keep_equal = True)
