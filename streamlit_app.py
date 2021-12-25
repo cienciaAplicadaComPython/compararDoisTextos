@@ -26,7 +26,7 @@ if botaoFoiSelecionado:
     
     if (dataframePrimaria.shape[1]  > 1) or (dataframeSecundaria.shape[1] > 1):
       'As palavras devem ser separadas em diferentes linhas. Por exemplo:'
-      st.write(pd.DataFrame(data = {'': ['casa', 'lar', 'prédio']}))
+      st.table(pd.DataFrame(data = {'': ['casa', 'lar', 'prédio']}))
     
     else:    
       'As palavras do segundo arquivo que estão presentes no primeiro:'
