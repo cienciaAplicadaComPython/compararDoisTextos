@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 st.title('Tenho vocabulário para isso?')
 
@@ -23,5 +24,7 @@ if botaoFoiSelecionado:
   else:
     dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None, engine = 'python')
     dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None, engine = 'python')
-    dataframePrimaria.to_numpy()
-    dataframeSecundaria.to_numpy()
+    numpyPrimaria = dataframePrimaria.to_numpy()
+    numpyPrimaria
+    numpySecundaria = dataframeSecundaria.to_numpy()
+    numpySecundaria
