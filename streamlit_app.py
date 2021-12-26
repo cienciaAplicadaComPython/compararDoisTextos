@@ -23,5 +23,5 @@ if botaoFoiSelecionado:
   else:
     #dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None, engine = 'python')
     #dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None, engine = 'python')
-    st.table(entradaDeTextoPrimaria)
-    st.write(entradaDeTextoSecundaria)
+    textoPrimario = str(entradaDeTextoPrimaria.read(), "utf-8")
+		st.text(textoPrimario)
