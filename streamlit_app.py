@@ -21,18 +21,9 @@ if botaoFoiSelecionado:
   if not(entradaDeTextoPrimaria and entradaDeTextoSecundaria):
     'Anexe os dois arquivos!'
   else:
-    dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None, engine = 'python')
-    dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None, engine = 'python')
-    
-    if (dataframePrimaria.shape[1]  > 1) or (dataframeSecundaria.shape[1] > 1):
-      'As palavras devem ser separadas em diferentes linhas. Por exemplo:'
-      st.table(pd.DataFrame(data = {'': ['casa', 'lar', 'prédio']}))
-    
-    else:    
-      'As palavras do segundo arquivo que estão presentes no primeiro:'
-      dfComPalavrasComuns = dataframePrimaria.compare(dataframeSecundaria, keep_shape = True, keep_equal = True)
-      dfComPalavrasComuns
-
-      'As palavras do segundo arquivo que são diferentes do primeiro:'
-      dfComPalavrasDiferentes = dataframePrimaria.compare(dataframeSecundaria, keep_shape = True)
-      dfComPalavrasDiferentes
+    #dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None, engine = 'python')
+    #dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None, engine = 'python')
+    arquivoPrimario = open("entradaDeTextoPrimaria", "r")
+    arquivoSecundario = open("entradaDeTextoSecundaria", "r")
+    arquivoPrimario
+    arquivoSecundario
