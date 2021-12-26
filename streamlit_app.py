@@ -23,7 +23,7 @@ if botaoFoiSelecionado:
   else:
     #dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None, engine = 'python')
     #dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None, engine = 'python')
-    textoPrimario = str(entradaDeTextoPrimaria.read(), "utf-8")
-    st.text(textoPrimario)
+    textoPrimario = entradaDeTextoPrimaria.read()
+    textoPrimario
     textoSecundario = str(entradaDeTextoSecundaria.read(), "utf-8")
     st.text(textoSecundario)
