@@ -23,5 +23,5 @@ if botaoFoiSelecionado:
   else:
     #dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None, engine = 'python')
     #dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None, engine = 'python')
-    with open(entradaDeTextoPrimaria) as input:
-        st.text(input.read())
+    entradaDeTextoPrimaria
+    entradaDeTextoSecundaria
