@@ -19,7 +19,7 @@ entradaDeTextoSecundaria = st.file_uploader('Segundo arquivo:', type= ['txt'])
 botaoFoiSelecionado = st.button('Faça a mágica')
 
 if botaoFoiSelecionado:
-  if not(entradaDeTextoPrimaria and entradaDeTextoSecundaria):
+  if not(entradaDeTextoPrimaria and entradaDeTextoSecundaria): #Caso nenhum ou somente um arquivo seja enviado
     'Anexe os dois arquivos!'
   else:
     dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None).stack()
@@ -27,6 +27,8 @@ if botaoFoiSelecionado:
     numpyPrimaria = dataframePrimaria.to_numpy()
     numpySecundaria = dataframeSecundaria.to_numpy()
     
+    #---------------------------------------------------------------------
+    #Separa os arquivos em palavras de acordo com os espaços
     while True:
       for posicao, conteudo in np.ndenumerate(numpyPrimaria):
         palavrasDeConteudo = conteudo.split(' ')
@@ -46,7 +48,10 @@ if botaoFoiSelecionado:
           break
       if posicao[0] == len(numpySecundaria) - 1:
         break
+    #---------------------------------------------------------------------
     
+    #---------------------------------------------------------------------
+    #Deleta os índices vazios e as pontuações dos arquivos
     while True:
       for posicao, conteudo in np.ndenumerate(numpyPrimaria):
         if conteudo == '':
@@ -72,10 +77,20 @@ if botaoFoiSelecionado:
           numpySecundaria[posicao] = conteudo
       if posicao[0] == len(numpySecundaria) - 1:
         break
+    #---------------------------------------------------------------------
     
+    #---------------------------------------------------------------------
+    #Deleta as palavras repetidas
     numpyPrimaria = np.unique(numpyPrimaria)
     numpySecundaria = np.unique(numpySecundaria)
+    #---------------------------------------------------------------------
     
+    #---------------------------------------------------------------------
+    #Permite ao usuário checar as palavras extraídas de cada arquivo
+    #---------------------------------------------------------------------
+    
+    #---------------------------------------------------------------------
+    # Salva as palavras comuns e diferentes um duas listas
     palavrasComuns = []
     palavrasDiferentes = []
     for _, palavraDoArquivo2 in np.ndenumerate(numpySecundaria):
@@ -83,10 +98,14 @@ if botaoFoiSelecionado:
         palavrasComuns.append(palavraDoArquivo2)
       else:
         palavrasDiferentes.append(palavraDoArquivo2)
+     #---------------------------------------------------------------------
           
+    #---------------------------------------------------------------------
+    #Expõe os resultados
     'As seguintes palavras estão no primeiro e segundo arquivos:'
     st.table(pd.DataFrame(palavrasComuns, index = range(1, len(palavrasComuns) + 1), columns = ['Palavras Comuns']))
     
     'As seguintes palavras estão somente no segundo arquivo:'
     st.table(pd.DataFrame(palavrasDiferentes, index = range(1, len(palavrasDiferentes) + 1), columns = ['Palavras Diferentes']))
+    #---------------------------------------------------------------------
         
