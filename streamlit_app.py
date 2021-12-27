@@ -85,7 +85,7 @@ if botaoFoiSelecionado:
         palavrasDiferentes.append(palavraDoArquivo2)
           
     'As seguintes palavras estão no primeiro e segundo arquivos:'
-    st.table(pd.DataFrame(palavrasComuns, index = np.arange(1, len(palavrasComuns) + 1), columns = ['Palavras Comuns']))
+    st.table(pd.DataFrame(palavrasComuns, index = range(1, len(palavrasComuns) + 1), columns = ['Palavras Comuns']))
     
     'As seguintes palavras estão somente no segundo arquivo:'
     st.table(pd.DataFrame(palavrasDiferentes, index = range(1, len(palavrasDiferentes) + 1), columns = ['Palavras Diferentes']))
