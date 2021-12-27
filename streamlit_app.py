@@ -13,8 +13,8 @@ st.title('Tenho vocabulário para isso?')
 
 st.subheader('Use o app!')
 'Anexe os arquivos com as palavras separadas por linhas:'
-entradaDeTextoPrimaria = st.file_uploader('Primeiro arquivo:', type= ['csv', 'txt'])
-entradaDeTextoSecundaria = st.file_uploader('Segundo arquivo:', type= ['csv', 'txt'])
+entradaDeTextoPrimaria = st.file_uploader('Primeiro arquivo:', type= ['txt'])
+entradaDeTextoSecundaria = st.file_uploader('Segundo arquivo:', type= ['txt'])
 
 botaoFoiSelecionado = st.button('Faça a mágica')
 
@@ -22,7 +22,7 @@ if botaoFoiSelecionado:
   if not(entradaDeTextoPrimaria and entradaDeTextoSecundaria):
     'Anexe os dois arquivos!'
   else:
-    dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None)
+    dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None).stack()
     dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None).stack()
     numpyPrimaria = dataframePrimaria.to_numpy()
     numpySecundaria = dataframeSecundaria.to_numpy()
