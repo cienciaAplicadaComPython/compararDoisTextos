@@ -25,11 +25,16 @@ if botaoFoiSelecionado:
     dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None, engine = 'python').stack()
     dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None, engine = 'python').stack()
     numpyPrimaria = dataframePrimaria.to_numpy()
-    numpyPrimaria
+    numpySecundaria = dataframeSecundaria.to_numpy()
+    
+    for posicao, conteudo in np.ndenumeate(numpyPrimaria):
+      st.write(f'{posicao}: {conteudo}')
     numpyPrimaria.shape
     numpyPrimaria.size
     numpyPrimaria.ndim
-    numpySecundaria = dataframeSecundaria.to_numpy()
+    
+    for posicao, conteudo in np.ndenumeate(numpySecundaria):
+      st.write(f'{posicao}: {conteudo}')    
     numpySecundaria
     numpySecundaria.shape
     numpySecundaria.size
