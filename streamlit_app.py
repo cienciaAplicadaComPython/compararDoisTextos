@@ -28,8 +28,10 @@ if botaoFoiSelecionado:
     numpySecundaria = dataframeSecundaria.to_numpy()
     
     for posicao, conteudo in np.ndenumerate(numpyPrimaria):
-      if conteudo.contains('casa'):
-        numpyPrimaria[posicao] = 'áéàíóúâç'
+      palavrasDeConteudo = conteudo.split(' ')
+      if palavrasDeConteudo != conteudo:
+        numpyPrimaria[posicao] = palavrasDeConteudo[0]
+        numpyPrimaria = numpyPrimaria.append(palavrasDeConteudo[1:])
     numpyPrimaria
     numpyPrimaria.shape
     numpyPrimaria.size
