@@ -28,7 +28,7 @@ if botaoFoiSelecionado:
     numpySecundaria = dataframeSecundaria.to_numpy()
     
     for posicao, conteudo in np.ndenumerate(numpyPrimaria):
-      if conteudo == 'casa':
+      if conteudo.contains('casa'):
         numpyPrimaria[posicao] = 'áéàíóúâç'
     numpyPrimaria
     numpyPrimaria.shape
