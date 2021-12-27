@@ -28,7 +28,8 @@ if botaoFoiSelecionado:
     numpySecundaria = dataframeSecundaria.to_numpy()
     
     for posicao, conteudo in np.ndenumerate(numpyPrimaria):
-      posicao
+      if posicao == (6,):
+        'Achei a posição 6!'
     numpyPrimaria
     numpyPrimaria.shape
     numpyPrimaria.size
