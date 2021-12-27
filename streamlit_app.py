@@ -50,9 +50,9 @@ if botaoFoiSelecionado:
     #---------------------------------------------------------------------
     #Checa palavras digitadas no navegador
     if entradaDeTextoPrimariaPeloNavegador:
-      numpyPrimaria = np.fromstring(entradaDeTextoPrimariaPeloNavegador)
+      numpyPrimaria = np.fromstring(entradaDeTextoPrimariaPeloNavegador, sep=',')
     if entradaDeTextoSecundariaPeloNavegador:
-      numpySecundaria = np.fromstring(entradaDeTextoSecundariaPeloNavegador)
+      numpySecundaria = np.fromstring(entradaDeTextoSecundariaPeloNavegador, sep=',')
     #---------------------------------------------------------------------
     
     #---------------------------------------------------------------------
