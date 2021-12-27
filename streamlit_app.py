@@ -34,8 +34,9 @@ if botaoFoiSelecionado:
           numpySecundaria = np.delete(numpyPrimaria, posicao)
           numpySecundaria = np.append(numpyPrimaria, palavrasDeConteudo)
           break
-      if posicao == len(numpyPrimaria) - 1:
-        break
+        posicao
+      #if posicao == len(numpyPrimaria) - 1:
+      #  break
     numpyPrimaria
     numpyPrimaria.shape
     numpyPrimaria.size
