@@ -57,6 +57,8 @@ if botaoFoiSelecionado:
             if carac in '''!()[]{};:'"\,<>./?@#$%^&*_~''':
               conteudo = conteudo.replace(carac, '')
           numpyPrimaria[posicao] = conteudo
+      if posicao[0] == len(numpyPrimaria) - 1:
+        break
         
     while True:
       for posicao, conteudo in np.ndenumerate(numpySecundaria):
@@ -67,7 +69,9 @@ if botaoFoiSelecionado:
           for carac in conteudo:
             if carac in '''!()[]{};:'"\,<>./?@#$%^&*_~''':
               conteudo = conteudo.replace(carac, '')
-          numpySecundaria[posicao] = conteudo  
+          numpySecundaria[posicao] = conteudo
+      if posicao[0] == len(numpySecundaria) - 1:
+        break
     
     numpyPrimaria
     numpySecundaria
