@@ -75,3 +75,5 @@ if botaoFoiSelecionado:
     
     numpyPrimaria = np.unique(numpyPrimaria)
     numpySecundaria = np.unique(numpySecundaria)
+    numpyPrimaria
+    numpySecundaria
