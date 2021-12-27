@@ -24,7 +24,7 @@ if botaoFoiSelecionado:
   else:
     dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None, engine = 'python')
     dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None, engine = 'python')
-    dataframeSecundaria = pd.stack(dataframeSecundaria)
+    dataframeSecundaria = dataframeSecundaria.stack(dataframeSecundaria)
     numpyPrimaria = dataframePrimaria.to_numpy()
     numpyPrimaria
     numpyPrimaria.shape
