@@ -86,14 +86,6 @@ if botaoFoiSelecionado:
     #---------------------------------------------------------------------
     
     #---------------------------------------------------------------------
-    #Permite ao usuário checar as palavras extraídas de cada arquivo
-    querChecarAsPalavras = st.sidebar.checkbox('Checar as palavras dos dois arquivos')
-    if querChecarAsPalavras:
-      st.sidebar.table(pd.DataFrame(numpyPrimaria, index = range(1, len(numpyPrimaria) + 1), columns = ['Palavras do Primeiro Arquivo']))
-      st.sidebar.table(pd.DataFrame(numpySecundaria, index = range(1, len(numpySecundaria) + 1), columns = ['Palavras do Segundo Arquivo']))
-    #---------------------------------------------------------------------
-    
-    #---------------------------------------------------------------------
     # Salva as palavras comuns e diferentes um duas listas
     palavrasComuns = []
     palavrasDiferentes = []
@@ -112,4 +104,10 @@ if botaoFoiSelecionado:
     'As seguintes palavras estão somente no segundo arquivo:'
     st.table(pd.DataFrame(palavrasDiferentes, index = range(1, len(palavrasDiferentes) + 1), columns = ['Palavras Diferentes']))
     #---------------------------------------------------------------------
+    
+    'Algumas palavras podem ser mescladas durante a leitura dos arquivos devido à pontuação. Por exemplo:'
+    'i) station/hardware'
+    'ii) exemplo:água'
+    'Experimente escrever a pontuação entre espaços e enviar os arquivos novamente.'
+    
         
