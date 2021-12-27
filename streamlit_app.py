@@ -54,6 +54,8 @@ if botaoFoiSelecionado:
     if entradaDeTextoSecundariaPeloNavegador:
       numpySecundaria = np.fromstring(entradaDeTextoSecundariaPeloNavegador, sep = ',')
     #---------------------------------------------------------------------
+    numpyPrimaria
+    numpySecundaria
     
     #---------------------------------------------------------------------
     #Separa os arquivos em palavras de acordo com os espaços
