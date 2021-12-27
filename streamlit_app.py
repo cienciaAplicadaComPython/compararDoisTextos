@@ -28,13 +28,15 @@ if botaoFoiSelecionado:
     numpySecundaria = dataframeSecundaria.to_numpy()
     
     for posicao, conteudo in np.ndenumerate(numpyPrimaria):
-      st.write('%d: %s' %(posicao, conteudo))
+      posicao
+      conteudo
     numpyPrimaria.shape
     numpyPrimaria.size
     numpyPrimaria.ndim
     
     for posicao, conteudo in np.ndenumerate(numpySecundaria):
-      f'{posicao}: {conteudo}'    
+      posicao
+      conteudo
     numpySecundaria
     numpySecundaria.shape
     numpySecundaria.size
