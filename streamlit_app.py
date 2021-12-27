@@ -29,14 +29,14 @@ if botaoFoiSelecionado:
     
     for posicao, conteudo in np.ndenumerate(numpyPrimaria):
       if posicao == (6,):
-        'Achei a posição 6!'
+        numpyPrimaria[posicao] = 'áéàíóúâç'
     numpyPrimaria
     numpyPrimaria.shape
     numpyPrimaria.size
     numpyPrimaria.ndim
     
     for posicao, conteudo in np.ndenumerate(numpySecundaria):
-      if posicao == 6:
+      if posicao >= (6,):
         numpySecundaria[posicao] = 'áéàíóúâç'
     numpySecundaria
     numpySecundaria.shape
