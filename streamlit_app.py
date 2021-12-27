@@ -32,8 +32,7 @@ if botaoFoiSelecionado:
       if palavrasDeConteudo != conteudo:
         numpyPrimaria[posicao] = palavrasDeConteudo[0]
         for posicaoDePalavrasDeConteudo in range(1, len(palavrasDeConteudo)):
-          #numpyPrimaria = numpyPrimaria.append(palavrasDeConteudo[posicaoDePalavrasDeConteudo])
-          posicaoDePalavrasDeConteudo
+          numpyPrimaria = numpyPrimaria.append(palavrasDeConteudo[(posicaoDePalavrasDeConteudo,)])
     numpyPrimaria
     numpyPrimaria.shape
     numpyPrimaria.size
