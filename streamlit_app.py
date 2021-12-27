@@ -51,12 +51,11 @@ if botaoFoiSelecionado:
       if conteudo == '':
         numpyPrimaria = np.delete(numpyPrimaria, posicao)
       else:
-        conteudo
         for carac in conteudo:
           if carac in '''!()[]{};:'"\,<>./?@#$%^&*_~''':
             conteudo = conteudo.replace(carac, '')
-            conteudo
         numpyPrimaria[posicao] = conteudo
+      numpyPrimaria
         
     #for posicao, conteudo in np.ndenumerate(numpySecundaria):
     #  if conteudo == '':
