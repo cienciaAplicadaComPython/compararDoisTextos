@@ -57,8 +57,8 @@ if botaoFoiSelecionado:
     
     #---------------------------------------------------------------------
     #Separa os arquivos em palavras de acordo com os espaços
-    len(numpyPrimaria)
-    len(numpySecundaria)
+    st.write(len(numpyPrimaria))
+    st.write(len(numpySecundaria))
     while True:
       for posicao, conteudo in np.ndenumerate(numpyPrimaria):
         palavrasDeConteudo = conteudo.split(' ')
