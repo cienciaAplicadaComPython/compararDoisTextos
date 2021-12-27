@@ -27,14 +27,15 @@ if botaoFoiSelecionado:
     numpyPrimaria = dataframePrimaria.to_numpy()
     numpySecundaria = dataframeSecundaria.to_numpy()
     
-    for posicao, conteudo in np.ndenumerate(numpyPrimaria):
-      palavrasDeConteudo = conteudo.split(' ')
-      if len(palavrasDeConteudo) > 1:
-        numpyPrimaria = np.append(numpyPrimaria, palavrasDeConteudo)
-    for posicao, conteudo in np.ndenumerate(numpyPrimaria):
-      palavrasDeConteudo = conteudo.split(' ')
-      if len(palavrasDeConteudo) > 1:
-        posicao
+    While True:
+      for posicao, conteudo in np.ndenumerate(numpyPrimaria):
+        palavrasDeConteudo = conteudo.split(' ')
+        if len(palavrasDeConteudo) > 1:
+          numpySecundaria = np.delete(numpyPrimaria, posicao)
+          numpySecundaria = np.append(numpyPrimaria, palavrasDeConteudo)
+          break
+      if posicao == len(numpyPrimaria) - 1:
+        break
     numpyPrimaria
     numpyPrimaria.shape
     numpyPrimaria.size
