@@ -86,7 +86,7 @@ if botaoFoiSelecionado:
           
     'As seguintes palavras estão no primeiro e segundo arquivos:'
     dfDePalavrasComuns = pd.DataFrame(palavrasComuns, columns = ['Palavras Comuns'])
-    dfDePalavrasComuns.index = np.arange(1, len(palavrasComuns))
+    dfDePalavrasComuns.index = np.arange(1, len(palavrasComuns) + 1)
     st.table(dfDePalavrasComuns)
     
     'As seguintes palavras estão somente no segundo arquivo:'
