@@ -54,3 +54,6 @@ if botaoFoiSelecionado:
     numpySecundaria.shape
     numpySecundaria.size
     numpySecundaria.ndim
+    
+    st.write(np.any(numpyPrimaria == ''))
+    st.write(np.any(numpySecundaria == ''))    
