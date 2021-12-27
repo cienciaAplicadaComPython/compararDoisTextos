@@ -29,10 +29,7 @@ if botaoFoiSelecionado:
     
     for posicao, conteudo in np.ndenumerate(numpyPrimaria):
       palavrasDeConteudo = conteudo.split(' ')
-      if palavrasDeConteudo != conteudo:
-        palavrasDeConteudo
-        conteudo
-        numpyPrimaria = np.delete(numpyPrimaria, posicao)
+      numpyPrimaria = np.append(numpyPrimaria, palavrasDeConteudo)
     numpyPrimaria
     numpyPrimaria.shape
     numpyPrimaria.size
