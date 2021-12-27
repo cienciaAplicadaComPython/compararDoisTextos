@@ -23,6 +23,7 @@ entradaDeTextoSecundariaPorArquivo = st.file_uploader('Segundo arquivo:', type= 
 #---------------------------------------------------------------------
 #Recebe o texto no navegador 
 entradaDeTextoPrimariaPeloNavegador = st.text_area('Digite o primeiro texto:')
+entradaDeTextoPrimariaPeloNavegador
 entradaDeTextoSecundariaPeloNavegador = st.text_area('Digite o segundo texto:')
 #---------------------------------------------------------------------
 
