@@ -31,6 +31,7 @@ if botaoFoiSelecionado:
       palavrasDeConteudo = conteudo.split(' ')
       if palavrasDeConteudo != conteudo:
         numpyPrimaria = np.delete(numpyPrimaria, posicao)
+        numpyPrimaria
     numpyPrimaria
     numpyPrimaria.shape
     numpyPrimaria.size
