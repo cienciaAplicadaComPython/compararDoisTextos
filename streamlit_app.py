@@ -50,15 +50,15 @@ if botaoFoiSelecionado:
     #---------------------------------------------------------------------
     #Checa palavras digitadas no navegador
     if entradaDeTextoPrimariaPeloNavegador:
-      numpyPrimaria = entradaDeTextoPrimariaPeloNavegador
+      numpyPrimaria = np.fromstring(entradaDeTextoPrimariaPeloNavegador)
     if entradaDeTextoSecundariaPeloNavegador:
-      numpySecundaria = np.fromstring(entradaDeTextoSecundariaPeloNavegador, sep = ',')
+      numpySecundaria = np.fromstring(entradaDeTextoSecundariaPeloNavegador)
     #---------------------------------------------------------------------
-    numpyPrimaria
-    numpySecundaria
     
     #---------------------------------------------------------------------
     #Separa os arquivos em palavras de acordo com os espaços
+    len(numpyPrimaria)
+    len(numpySecundaria)
     while True:
       for posicao, conteudo in np.ndenumerate(numpyPrimaria):
         palavrasDeConteudo = conteudo.split(' ')
