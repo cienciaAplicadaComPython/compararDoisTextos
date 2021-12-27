@@ -36,10 +36,6 @@ if botaoFoiSelecionado:
           break
       if posicao[0] == len(numpyPrimaria) - 1:
         break
-    numpyPrimaria
-    numpyPrimaria.shape
-    numpyPrimaria.size
-    numpyPrimaria.ndim
     
     while True:
       for posicao, conteudo in np.ndenumerate(numpySecundaria):
@@ -50,10 +46,6 @@ if botaoFoiSelecionado:
           break
       if posicao[0] == len(numpySecundaria) - 1:
         break
-    numpySecundaria
-    numpySecundaria.shape
-    numpySecundaria.size
-    numpySecundaria.ndim
     
     for posicao, conteudo in np.ndenumerate(numpyPrimaria):
       if conteudo == '':
@@ -61,3 +53,6 @@ if botaoFoiSelecionado:
     for posicao, conteudo in np.ndenumerate(numpySecundaria):
       if conteudo == '':
         numpySecundaria = np.delete(numpySecundaria, posicao) 
+        
+    numpyPrimaria
+    numpySecundaria
