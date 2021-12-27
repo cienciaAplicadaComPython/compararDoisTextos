@@ -33,6 +33,7 @@ if botaoFoiSelecionado:
         if len(palavrasDeConteudo) > 1:
           numpySecundaria = np.delete(numpyPrimaria, posicao)
           numpySecundaria = np.append(numpyPrimaria, palavrasDeConteudo)
+          palavrasDeConteudo
           break
         posicao[0]
       if posicao[0] == len(numpyPrimaria) - 1:
