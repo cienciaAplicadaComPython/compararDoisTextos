@@ -34,7 +34,7 @@ if botaoFoiSelecionado:
           numpySecundaria = np.delete(numpyPrimaria, posicao)
           numpySecundaria = np.append(numpyPrimaria, palavrasDeConteudo)
           break
-        posicao
+        posicao[0]
       if posicao[0] == len(numpyPrimaria) - 1:
         break
     numpyPrimaria
