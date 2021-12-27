@@ -12,20 +12,48 @@ st.title('Tenho vocabulário para isso?')
 '\tiii) Antecipar o vocabulário necessário para um filme.'
 
 st.subheader('Use o app!')
-'Anexe os arquivos com as palavras separadas por linhas:'
-entradaDeTextoPrimaria = st.file_uploader('Primeiro arquivo:', type= ['txt'])
-entradaDeTextoSecundaria = st.file_uploader('Segundo arquivo:', type= ['txt'])
+'Anexe os arquivos:'
+#---------------------------------------------------------------------
+#Recebe arquivos por upload
+entradaDeTextoPrimariaPorArquivo = st.file_uploader('Primeiro arquivo:', type= ['txt'])
+entradaDeTextoSecundariaPorArquivo = st.file_uploader('Segundo arquivo:', type= ['txt'])
+#---------------------------------------------------------------------
 
-botaoFoiSelecionado = st.button('Faça a mágica')
+'Ou digite as palavras:'
+#---------------------------------------------------------------------
+#Recebe o texto no navegador 
+entradaDeTextoPrimariaPeloNavegador = st.text_area('Digite o primeiro texto:')
+entradaDeTextoSecundariaPeloNavegador = st.text_area('Digite o segundo texto:')
+#---------------------------------------------------------------------
+
+botaoFoiSelecionado = st.button('Comparar arquivos')
 
 if botaoFoiSelecionado:
-  if not(entradaDeTextoPrimaria and entradaDeTextoSecundaria): #Caso nenhum ou somente um arquivo seja enviado
+  #---------------------------------------------------------------------
+  #Caso nenhuma ou somente uma entrada seja enviada
+  if not((entradaDeTextoPrimariaPorArquivo or entradaDeTextoPrimariaPeloNavegador) and (entradaDeTextoSecundariaPorArquivo or entradaDeTextoSecundariaPeloNavegador)):
     'Anexe os dois arquivos!'
+  #---------------------------------------------------------------------
+  
+  #---------------------------------------------------------------------
+  #Caso duas entradas sejam enviadas 
   else:
-    dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None).stack()
-    dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None).stack()
-    numpyPrimaria = dataframePrimaria.to_numpy()
-    numpySecundaria = dataframeSecundaria.to_numpy()
+    #---------------------------------------------------------------------
+    #Checa arquivos anexados
+    if entradaDeTextoPrimariaPorArquivo:
+      dataframePrimaria = pd.read_csv(entradaDeTextoPrimariaPorArquivo, header = None).stack()
+      numpyPrimaria = dataframePrimaria.to_numpy()
+    if entradaDeTextoSecundariaPorArquivo:
+      dataframeSecundaria = pd.read_csv(entradaDeTextoSecundariaPorArquivo, header = None).stack()
+      numpySecundaria = dataframeSecundaria.to_numpy()
+    #---------------------------------------------------------------------
+    #---------------------------------------------------------------------
+    #Checa palavras digitadas no navegador
+    if entradaDeTextoPrimariaPeloNavegador:
+      numpyPrimaria = np.fromstring(entradaDeTextoPrimariaPeloNavegador, sep = ',')
+    if entradaDeTextoSecundariaPeloNavegador:
+      numpySecundaria = np.fromstring(entradaDeTextoSecundariaPeloNavegador, sep = ',')
+    #---------------------------------------------------------------------
     
     #---------------------------------------------------------------------
     #Separa os arquivos em palavras de acordo com os espaços
@@ -109,5 +137,7 @@ if botaoFoiSelecionado:
     'i) station/hardware'
     'ii) exemplo:água'
     'Experimente escrever a pontuação entre espaços e enviar os arquivos novamente.'
+  #---------------------------------------------------------------------
+ 
     
         
