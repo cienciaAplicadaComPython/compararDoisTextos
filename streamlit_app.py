@@ -27,7 +27,7 @@ if botaoFoiSelecionado:
     numpyPrimaria = dataframePrimaria.to_numpy()
     numpySecundaria = dataframeSecundaria.to_numpy()
     
-    While True:
+    while True:
       for posicao, conteudo in np.ndenumerate(numpyPrimaria):
         palavrasDeConteudo = conteudo.split(' ')
         if len(palavrasDeConteudo) > 1:
