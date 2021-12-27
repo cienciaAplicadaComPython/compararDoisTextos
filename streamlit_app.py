@@ -29,14 +29,14 @@ if botaoFoiSelecionado:
     
     for posicao, conteudo in np.ndenumerate(numpyPrimaria):
       posicao
-      conteudo
+      conteudo.dtype
     numpyPrimaria.shape
     numpyPrimaria.size
     numpyPrimaria.ndim
     
     for posicao, conteudo in np.ndenumerate(numpySecundaria):
       posicao
-      conteudo
+      conteudo.dtype
     numpySecundaria.shape
     numpySecundaria.size
     numpySecundaria.ndim
