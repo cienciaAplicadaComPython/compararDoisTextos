@@ -37,7 +37,6 @@ if botaoFoiSelecionado:
     for posicao, conteudo in np.ndenumerate(numpySecundaria):
       posicao
       conteudo
-    numpySecundaria
     numpySecundaria.shape
     numpySecundaria.size
     numpySecundaria.ndim
