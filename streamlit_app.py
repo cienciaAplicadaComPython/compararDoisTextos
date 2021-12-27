@@ -28,7 +28,7 @@ if botaoFoiSelecionado:
     numpySecundaria = dataframeSecundaria.to_numpy()
     
     for posicao, conteudo in np.ndenumerate(numpyPrimaria):
-      if posicao == (6,):
+      if conteudo == 'casa':
         numpyPrimaria[posicao] = 'áéàíóúâç'
     numpyPrimaria
     numpyPrimaria.shape
@@ -36,7 +36,7 @@ if botaoFoiSelecionado:
     numpyPrimaria.ndim
     
     for posicao, conteudo in np.ndenumerate(numpySecundaria):
-      if posicao >= (6,):
+      if conteudo != 'casa':
         numpySecundaria[posicao] = 'áéàíóúâç'
     numpySecundaria
     numpySecundaria.shape
