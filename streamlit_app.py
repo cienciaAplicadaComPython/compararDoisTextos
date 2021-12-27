@@ -50,15 +50,15 @@ if botaoFoiSelecionado:
     #---------------------------------------------------------------------
     #Checa palavras digitadas no navegador
     if entradaDeTextoPrimariaPeloNavegador:
-      numpyPrimaria = np.fromstring(entradaDeTextoPrimariaPeloNavegador, sep=',')
+      dataframePrimaria = pd.read_csv(entradaDeTextoPrimariaPeloNavegador, header = None).stack()
+      numpyPrimaria = dataframePrimaria.to_numpy()
     if entradaDeTextoSecundariaPeloNavegador:
-      numpySecundaria = np.fromstring(entradaDeTextoSecundariaPeloNavegador, sep=',')
+      dataframeSecundaria = pd.read_csv(entradaDeTextoSecundariaPeloNavegador, header = None).stack()
+      numpySecundaria = dataframeSecundaria.to_numpy()
     #---------------------------------------------------------------------
     
     #---------------------------------------------------------------------
     #Separa os arquivos em palavras de acordo com os espaços
-    st.write(len(numpyPrimaria))
-    st.write(len(numpySecundaria))
     while True:
       for posicao, conteudo in np.ndenumerate(numpyPrimaria):
         palavrasDeConteudo = conteudo.split(' ')
