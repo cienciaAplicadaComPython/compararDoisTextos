@@ -32,7 +32,7 @@ if botaoFoiSelecionado:
   #---------------------------------------------------------------------
   #Caso nenhuma ou somente uma entrada seja enviada
   if not((entradaDeTextoPrimariaPorArquivo or entradaDeTextoPrimariaPeloNavegador) and (entradaDeTextoSecundariaPorArquivo or entradaDeTextoSecundariaPeloNavegador)):
-    'Anexe os dois arquivos!'
+    'Anexe os dois arquivos ou digite as palavras!'
   #---------------------------------------------------------------------
   
   #---------------------------------------------------------------------
