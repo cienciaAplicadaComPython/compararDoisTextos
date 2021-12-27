@@ -75,5 +75,18 @@ if botaoFoiSelecionado:
     
     numpyPrimaria = np.unique(numpyPrimaria)
     numpySecundaria = np.unique(numpySecundaria)
-    numpyPrimaria
-    numpySecundaria
+    
+    palavrasComuns = []
+    palavrasDiferentes = []
+    for _, palavraDoArquivo2 in np.ndenumerate(numpySecundaria):
+      if np.any(numpyPrimaria == palavraDoArquivo2):
+        palavrasComuns.append(palavraDoArquivo2)
+      else:
+        palavrasDiferentes.append(palavraDoArquivo2)
+          
+    'As seguintes palavras estão no primeiro e segundo arquivos:'
+    palavrasComuns
+    
+    'As seguintes palavras estão somente no segundo arquivo:'
+    palavrasDiferentes
+        
