@@ -47,24 +47,27 @@ if botaoFoiSelecionado:
       if posicao[0] == len(numpySecundaria) - 1:
         break
     
-    for posicao, conteudo in np.ndenumerate(numpyPrimaria):
-      if conteudo == '':
-        numpyPrimaria = np.delete(numpyPrimaria, posicao)
-      else:
-        for carac in conteudo:
-          if carac in '''!()[]{};:'"\,<>./?@#$%^&*_~''':
-            conteudo = conteudo.replace(carac, '')
-        numpyPrimaria[posicao] = conteudo
-      numpyPrimaria
+    while True:
+      for posicao, conteudo in np.ndenumerate(numpyPrimaria):
+        if conteudo == '':
+          numpyPrimaria = np.delete(numpyPrimaria, posicao)
+          break
+        else:
+          for carac in conteudo:
+            if carac in '''!()[]{};:'"\,<>./?@#$%^&*_~''':
+              conteudo = conteudo.replace(carac, '')
+          numpyPrimaria[posicao] = conteudo
         
-    #for posicao, conteudo in np.ndenumerate(numpySecundaria):
-    #  if conteudo == '':
-    #    numpySecundaria = np.delete(numpySecundaria, posicao) 
-    #  else:
-    #    for carac in conteudo:
-    #      if carac in '''!()[]{};:'"\,<>./?@#$%^&*_~''':
-    #        conteudo = conteudo.replace(carac, '')
-    #    numpySecundaria[posicao] = conteudo  
+    while True:
+      for posicao, conteudo in np.ndenumerate(numpySecundaria):
+        if conteudo == '':
+          numpySecundaria = np.delete(numpySecundaria, posicao) 
+          break
+        else:
+          for carac in conteudo:
+            if carac in '''!()[]{};:'"\,<>./?@#$%^&*_~''':
+              conteudo = conteudo.replace(carac, '')
+          numpySecundaria[posicao] = conteudo  
     
     numpyPrimaria
     numpySecundaria
