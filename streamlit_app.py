@@ -87,10 +87,10 @@ if botaoFoiSelecionado:
     
     #---------------------------------------------------------------------
     #Permite ao usuário checar as palavras extraídas de cada arquivo
-    querChecarAsPalavras = st.checkbox('Checar as palavras dos dois arquivos')
+    querChecarAsPalavras = st.sidebar.checkbox('Checar as palavras dos dois arquivos')
     if querChecarAsPalavras:
-      st.table(pd.DataFrame(numpyPrimaria, index = range(1, len(numpyPrimaria) + 1), columns = ['Palavras do Primeiro Arquivo']))
-      st.table(pd.DataFrame(numpySecundaria, index = range(1, len(numpySecundaria) + 1), columns = ['Palavras do Segundo Arquivo']))
+      st.sidebar.table(pd.DataFrame(numpyPrimaria, index = range(1, len(numpyPrimaria) + 1), columns = ['Palavras do Primeiro Arquivo']))
+      st.sidebar.table(pd.DataFrame(numpySecundaria, index = range(1, len(numpySecundaria) + 1), columns = ['Palavras do Segundo Arquivo']))
     #---------------------------------------------------------------------
     
     #---------------------------------------------------------------------
