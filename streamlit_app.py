@@ -73,5 +73,5 @@ if botaoFoiSelecionado:
       if posicao[0] == len(numpySecundaria) - 1:
         break
     
-    numpyPrimaria
-    numpySecundaria
+    numpyPrimaria = np.unique(numpyPrimaria)
+    numpySecundaria = np.unique(numpySecundaria)
