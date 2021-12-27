@@ -41,11 +41,15 @@ if botaoFoiSelecionado:
     numpyPrimaria.size
     numpyPrimaria.ndim
     
-    for posicao, conteudo in np.ndenumerate(numpySecundaria):
-      palavrasDeConteudo = conteudo.split(' ')
-      if len(palavrasDeConteudo) > 1:
-        numpySecundaria = np.delete(numpySecundaria, posicao)
-        numpySecundaria = np.append(numpySecundaria, palavrasDeConteudo)
+    while True:
+      for posicao, conteudo in np.ndenumerate(numpySecundaria):
+        palavrasDeConteudo = conteudo.split(' ')
+        if len(palavrasDeConteudo) > 1:
+          numpySecundaria = np.delete(numpySecundaria, posicao)
+          numpySecundaria = np.append(numpySecundaria, palavrasDeConteudo)
+          break
+      if posicao[0] == len(numpySecundaria) - 1:
+        break
     numpySecundaria
     numpySecundaria.shape
     numpySecundaria.size
