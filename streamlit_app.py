@@ -29,7 +29,7 @@ if botaoFoiSelecionado:
     
     while True:
       for posicao, conteudo in np.ndenumerate(numpyPrimaria):
-        palavrasDeConteudo = conteudo.split('!')
+        palavrasDeConteudo = conteudo.split(' ')
         if len(palavrasDeConteudo) > 1:
           numpyPrimaria = np.delete(numpyPrimaria, posicao)
           numpyPrimaria = np.append(numpyPrimaria, palavrasDeConteudo)
@@ -55,5 +55,9 @@ if botaoFoiSelecionado:
     numpySecundaria.size
     numpySecundaria.ndim
     
-    st.write(np.any(numpyPrimaria == ''))
-    st.write(np.any(numpySecundaria == ''))    
+    for posicao, conteudo in np.ndenumerate(numpyPrimaria):
+      if conteudo == '':
+        numpyPrimaria = np.delete(numpyPrimaria, posicao) 
+    for posicao, conteudo in np.ndenumerate(numpySecundaria):
+      if conteudo == '':
+        numpySecundaria = np.delete(numpySecundaria, posicao) 
