@@ -29,7 +29,7 @@ if botaoFoiSelecionado:
     
     for posicao, conteudo in np.ndenumerate(numpyPrimaria):
       if posicao == 6:
-        numpyPrimaria[posicao] = 'áéàíóúâç'
+        numpyPrimaria[posicao]
     numpyPrimaria
     numpyPrimaria.shape
     numpyPrimaria.size
