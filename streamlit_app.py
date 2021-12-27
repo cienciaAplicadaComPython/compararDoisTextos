@@ -25,10 +25,12 @@ if botaoFoiSelecionado:
     dataframePrimaria = pd.read_csv(entradaDeTextoPrimaria, header = None, engine = 'python')
     dataframeSecundaria = pd.read_csv(entradaDeTextoSecundaria, header = None, engine = 'python')
     numpyPrimaria = dataframePrimaria.to_numpy()
+    numpyPrimaria
     numpyPrimaria.shape
     numpyPrimaria.size
     numpyPrimaria.ndim
     numpySecundaria = dataframeSecundaria.to_numpy()
+    numpySecundaria
     numpySecundaria.shape
     numpySecundaria.size
     numpySecundaria.ndim
