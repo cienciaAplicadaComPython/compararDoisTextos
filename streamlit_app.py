@@ -169,3 +169,6 @@ if botaoFoiSelecionado:
     st.download_button('Baixe as palavras diferentes', data = dataFrameDePalavrasDiferentes.to_csv().encode('ISO-8859-1'), file_name = 'palavrasDiferentes.csv', mime = 'text/csv') 
   #---------------------------------------------------------------------
 #---------------------------------------------------------------------
+
+st.caption('**Desenvolvido por:** Jefferson Silva'
+           '**E-mail:** j.davidss@hotmail.com')
