@@ -143,16 +143,22 @@ if botaoFoiSelecionado:
     #---------------------------------------------------------------------
     #Expõe os resultados
     'As seguintes palavras estão no primeiro e segundo arquivos:'
-    st.table(pd.DataFrame(palavrasComuns, index = range(1, len(palavrasComuns) + 1), columns = ['Palavras Comuns']))
+    dataFrameDePalavrasComuns = pd.DataFrame(palavrasComuns, index = range(1, len(palavrasComuns) + 1), columns = ['Palavras Comuns'])
+    st.table(dataFrameDePalavrasComuns)
     
     'As seguintes palavras estão somente no segundo arquivo:'
-    st.table(pd.DataFrame(palavrasDiferentes, index = range(1, len(palavrasDiferentes) + 1), columns = ['Palavras Diferentes']))
+    dataFrameDePalavrasDiferentes = pd.DataFrame(palavrasDiferentes, index = range(1, len(palavrasDiferentes) + 1), columns = ['Palavras Diferentes'])
+    st.table(dataFrameDePalavrasDiferentes)
     #---------------------------------------------------------------------
     
     'Algumas palavras podem ser mescladas durante a leitura dos arquivos devido à pontuação. Por exemplo:'
     'i) station/hardware'
     'ii) exemplo:água'
     'Experimente escrever a pontuação entre espaços e tente novamente.'
+    
+    #---------------------------------------------------------------------
+    #Baixa os arquivos TXT dos resultados
+    st.download_button('Baixe as palavras comuns em TXT', data = dataFrameDePalavrasComuns.to_csv.encode('utf-8'), file_name = 'palavrasComuns.txt')
   #---------------------------------------------------------------------
  
     
