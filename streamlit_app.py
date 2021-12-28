@@ -158,8 +158,8 @@ if botaoFoiSelecionado:
     
     #---------------------------------------------------------------------
     #Baixa os arquivos TXT dos resultados
-    st.download_button('Baixe as palavras comuns em CSV', data = dataFrameDePalavrasComuns.to_csv().encode('ISO-8859-1'), file_name = 'palavrasComuns.csv', mime = 'text/csv')
-    st.download_button('Baixe as palavras diferentes em CSV', data = dataFrameDePalavrasDiferentes.to_csv().encode('ISO-8859-1'), file_name = 'palavrasDiferentes.csv', mime = 'text/csv')
+    st.download_button('Baixe as palavras comuns', data = dataFrameDePalavrasComuns.to_csv().encode('ISO-8859-1'), file_name = 'palavrasComuns.csv', mime = 'text/csv')
+    st.download_button('Baixe as palavras diferentes', data = dataFrameDePalavrasDiferentes.to_csv().encode('ISO-8859-1'), file_name = 'palavrasDiferentes.csv', mime = 'text/csv')
     #---------------------------------------------------------------------
   #---------------------------------------------------------------------
  
