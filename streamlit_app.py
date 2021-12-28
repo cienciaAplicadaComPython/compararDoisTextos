@@ -4,7 +4,7 @@ import numpy as np
 
 #---------------------------------------------------------------------
 #Função para comparar as entradas de texto
-#@st.cache
+@st.cache
 def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador):
   #---------------------------------------------------------------------
   #Caso nenhuma ou somente uma entrada seja enviada
@@ -164,6 +164,9 @@ entradaDeTextoPrimariaNoNavegador = st.text_area('Primeiro texto:')
 entradaDeTextoSecundariaNoNavegador = st.text_area('Segundo texto:')
 #---------------------------------------------------------------------
 
+#---------------------------------------------------------------------
+#Chama a função para comparar as duas entradas de texto
 botaoFoiSelecionado = st.button('Comparar arquivos')
 if botaoFoiSelecionado:
   compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador)
+#---------------------------------------------------------------------
