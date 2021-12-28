@@ -110,10 +110,11 @@ st.title('Comparar Dois Textos')
 'Esta aplicação ajuda você a cruzar as palavras de duas fontes de entrada e retornar as palavras em comum e diferentes.'
 
 st.subheader('Onde utilizar?')
-'\t I) Comparar os vocabulários ensinado e de uma música para aulas de inglês;'
-'\t II) Visualizar as palavras diferentes entre dois discursos;'
-'\t III) Antecipar o vocabulário necessário para um filme;'
-'\t IV) Identificar as palavras comuns entre dois diálogos.'
+'&nbsp; I) Comparar os vocabulários ensinado e de uma música;'
+'&nbsp; I) Analisar as expressões de duas canções;'
+'&nbsp; II) Visualizar as palavras diferentes entre dois discursos;'
+'&nbsp; III) Antecipar o vocabulário necessário para um filme;'
+'&nbsp; IV) Identificar as palavras comuns entre dois diálogos.'
 
 st.subheader('Como utilizar?')
 'Faça o upload de dois arquivos de texto *TXT* com os vocabulários, discursos, diálogos e outros para comparação ou digite-os no navegador e aperte o botão **Comparar arquivos**.'
