@@ -4,7 +4,7 @@ import numpy as np
 
 #---------------------------------------------------------------------
 #Função para comparar as entradas de texto
-@st.cache(suppress_st_warning = True, persist = True)
+@st.cache(persist = True, suppress_st_warning = True)
 def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador):
   #---------------------------------------------------------------------
   #Caso nenhuma ou somente uma entrada seja enviada
