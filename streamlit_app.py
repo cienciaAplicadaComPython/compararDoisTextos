@@ -153,7 +153,7 @@ entradaDeTextoSecundariaNoNavegador = st.text_area('Segundo texto:')
 #Chama a função para comparar as duas entradas de texto, expõe os resultados e permite baixá-los
 botaoFoiSelecionado = st.button('Comparar arquivos')
 if botaoFoiSelecionado:
-  compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador)
+  dataFrameDePalavrasComuns, dataFrameDePalavrasDiferentes = compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador)
   
   'As seguintes palavras estão no primeiro e segundo arquivos:'
   st.table(dataFrameDePalavrasComuns)
