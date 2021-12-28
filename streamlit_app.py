@@ -170,5 +170,5 @@ if botaoFoiSelecionado:
   #---------------------------------------------------------------------
 #---------------------------------------------------------------------
 
-st.caption('**Desenvolvido por:** Jefferson Silva'
-           '**E-mail:** j.davidss@hotmail.com')
+st.caption('**Desenvolvido por:** Jefferson Silva')
+st.caption('**E-mail:** j.davidss@hotmail.com')
