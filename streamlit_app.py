@@ -17,7 +17,7 @@ st.subheader('Como utilizar?')
 
 testeDeTextoNoNavegador = st.text_area('Teste:')
 textoNoNavegadorNumpy = str.split(testeDeTextoNoNavegador)
-textoNoNavegadorNumpy
+textoNoNavegadorNumpy = np.array(textoNoNavegadorNumpy)
 textoNoNavegadorNumpy.ndim
 textoNoNavegadorNumpy.shape
 textoNoNavegadorNumpy.size
