@@ -42,20 +42,16 @@ if botaoFoiSelecionado:
   #---------------------------------------------------------------------
   #Caso duas entradas sejam enviadas 
   else:
+    #---------------------------------------------------------------------
+    #Se houve envio de arquivos 
     if entradaDeTextoPrimariaPorArquivo:
       dataframePrimaria = pd.read_csv(entradaDeTextoPrimariaPorArquivo, header = None).stack()
       numpyPrimaria = dataframePrimaria.to_numpy()
     if entradaDeTextoSecundariaPorArquivo:
       dataframeSecundaria = pd.read_csv(entradaDeTextoSecundariaPorArquivo, header = None).stack()
       numpySecundaria = dataframeSecundaria.to_numpy()
-      
-    if entradaDeTextoPrimariaNoNavegador:
-      palavrasDaEntradaDeTextoPrimariaNoNavegador = str.split(entradaDeTextoPrimariaNoNavegador)
-      numpyPrimaria = np.array(palavrasDaEntradaDeTextoPrimariaNoNavegador)
-    if entradaDeTextoSecundariaNoNavegador:
-      palavrasDaEntradaDeTextoSecundariaNoNavegador = str.split(entradaDeTextoSecundariaNoNavegador)
-      numpySecundaria = np.array(palavrasDaEntradaDeTextoSecundariaNoNavegador)
-      
+    #--------------------------------------------------------------------- 
+    
     #---------------------------------------------------------------------
     #Separa os arquivos em palavras de acordo com os espaços
     while True:
@@ -77,6 +73,16 @@ if botaoFoiSelecionado:
           break
       if posicao[0] == len(numpySecundaria) - 1:
         break
+    #---------------------------------------------------------------------
+    
+    #---------------------------------------------------------------------
+    #Se os textos foram inseridos diretamente no navegador 
+    if entradaDeTextoPrimariaNoNavegador:
+      palavrasDaEntradaDeTextoPrimariaNoNavegador = str.split(entradaDeTextoPrimariaNoNavegador)
+      numpyPrimaria = np.array(palavrasDaEntradaDeTextoPrimariaNoNavegador)
+    if entradaDeTextoSecundariaNoNavegador:
+      palavrasDaEntradaDeTextoSecundariaNoNavegador = str.split(entradaDeTextoSecundariaNoNavegador)
+      numpySecundaria = np.array(palavrasDaEntradaDeTextoSecundariaNoNavegador)
     #---------------------------------------------------------------------
     
     #---------------------------------------------------------------------
@@ -137,7 +143,7 @@ if botaoFoiSelecionado:
     'Algumas palavras podem ser mescladas durante a leitura dos arquivos devido à pontuação. Por exemplo:'
     'i) station/hardware'
     'ii) exemplo:água'
-    'Experimente escrever a pontuação entre espaços e enviar os arquivos novamente.'
+    'Experimente escrever a pontuação entre espaços e tente novamente.'
   #---------------------------------------------------------------------
  
     
