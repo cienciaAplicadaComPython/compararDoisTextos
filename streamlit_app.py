@@ -30,7 +30,7 @@ entradaDeTextoPrimariaNoNavegador = st.text_area('Primeiro texto:')
 entradaDeTextoSecundariaNoNavegador = st.text_area('Segundo texto:')
 #---------------------------------------------------------------------
 
-botaoFoiSelecionado = st.button('Comparar arquivos')
+botaoFoiSelecionado = st.button('Comparar arquivos', on_click = compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador))
 
 @st.cache
 def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador):
