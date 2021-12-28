@@ -15,14 +15,6 @@ st.subheader('Onde utilizar?')
 st.subheader('Como utilizar?')
 'Faça o upload de dois arquivos de texto *TXT* contendo os textos para comparação e aperte o botão **Comparar arquivos**.'
 
-testeDeTextoNoNavegador = st.text_area('Teste:')
-textoNoNavegadorNumpy = str.split(testeDeTextoNoNavegador)
-textoNoNavegadorNumpy = np.array(textoNoNavegadorNumpy)
-textoNoNavegadorNumpy
-textoNoNavegadorNumpy.ndim
-textoNoNavegadorNumpy.shape
-textoNoNavegadorNumpy.size
-
 st.subheader('Use o app!')
 'Anexe os arquivos:'
 #---------------------------------------------------------------------
@@ -31,23 +23,39 @@ entradaDeTextoPrimariaPorArquivo = st.file_uploader('Primeiro arquivo:', type= [
 entradaDeTextoSecundariaPorArquivo = st.file_uploader('Segundo arquivo:', type= ['txt'])
 #---------------------------------------------------------------------
 
+'Ou digite os textos:'
+#---------------------------------------------------------------------
+#Recebe os textos diretamente no navegador
+entradaDeTextoPrimariaNoNavegador = st.text_area('Primeiro texto:')
+entradaDeTextoSecundariaNoNavegador = st.text_area('Segundo texto:')
+#---------------------------------------------------------------------
+
 botaoFoiSelecionado = st.button('Comparar arquivos')
 
 if botaoFoiSelecionado:
   #---------------------------------------------------------------------
   #Caso nenhuma ou somente uma entrada seja enviada
-  if not(entradaDeTextoPrimariaPorArquivo and entradaDeTextoSecundariaPorArquivo):
-    'Anexe os dois arquivos ou digite as palavras!'
+  if not((entradaDeTextoPrimariaPorArquivo or entradaDeTextoPrimariaNoNavegador) and (entradaDeTextoSecundariaPorArquivo or entradaDeTextoSecundariaNoNavegador)):
+    'Uma ou as duas entradas estão faltando!'
   #---------------------------------------------------------------------
   
   #---------------------------------------------------------------------
   #Caso duas entradas sejam enviadas 
   else:
-    dataframePrimaria = pd.read_csv(entradaDeTextoPrimariaPorArquivo, header = None).stack()
-    dataframeSecundaria = pd.read_csv(entradaDeTextoSecundariaPorArquivo, header = None).stack()
-    numpyPrimaria = dataframePrimaria.to_numpy()
-    numpySecundaria = dataframeSecundaria.to_numpy()
-    
+    if entradaDeTextoPrimariaPorArquivo:
+      dataframePrimaria = pd.read_csv(entradaDeTextoPrimariaPorArquivo, header = None).stack()
+      numpyPrimaria = dataframePrimaria.to_numpy()
+    if entradaDeTextoSecundariaPorArquivo:
+      dataframeSecundaria = pd.read_csv(entradaDeTextoSecundariaPorArquivo, header = None).stack()
+      numpySecundaria = dataframeSecundaria.to_numpy()
+      
+    if entradaDeTextoPrimariaNoNavegador:
+      palavrasDaEntradaDeTextoPrimariaNoNavegador = str.split(entradaDeTextoPrimariaNoNavegador)
+      numpyPrimaria = np.array(palavrasDaEntradaDeTextoPrimariaNoNavegador)
+    if entradaDeTextoSecundariaNoNavegador:
+      palavrasDaEntradaDeTextoSecundariaNoNavegador = str.split(entradaDeTextoSecundariaNoNavegador)
+      numpySecundaria = np.array(palavrasDaEntradaDeTextoSecundariaNoNavegador)
+      
     #---------------------------------------------------------------------
     #Separa os arquivos em palavras de acordo com os espaços
     while True:
