@@ -16,7 +16,7 @@ st.subheader('Como utilizar?')
 'Faça o upload de dois arquivos de texto *TXT* contendo os textos para comparação e aperte o botão **Comparar arquivos**.'
 
 testeDeTextoNoNavegador = st.text_area('Teste:')
-textoNoNavegadorNumpy = np.fromstring(testeDeTextoNoNavegador)
+textoNoNavegadorNumpy = np.fromstring('testeDeTextoNoNavegador')
 textoNoNavegadorNumpy
 
 st.subheader('Use o app!')
