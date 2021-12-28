@@ -111,10 +111,10 @@ st.title('Comparar Dois Textos')
 
 st.subheader('Onde utilizar?')
 'I) Comparar os vocabulários ensinado e de uma música;'
-'I) Analisar as expressões de duas canções;'
-'II) Visualizar as palavras diferentes entre dois discursos;'
-'III) Antecipar o vocabulário necessário para um filme;'
-'IV) Identificar as palavras comuns entre dois diálogos.'
+'II) Analisar as expressões de duas canções;'
+'III) Visualizar as palavras diferentes entre dois discursos;'
+'IV) Antecipar o vocabulário necessário para um filme;'
+'V) Identificar as palavras comuns entre dois diálogos.'
 
 st.subheader('Como utilizar?')
 'Faça o upload de dois arquivos de texto *TXT* com os vocabulários, discursos, diálogos e outros para comparação ou digite-os no navegador e aperte o botão **Comparar arquivos**.'
