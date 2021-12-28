@@ -4,7 +4,7 @@ import numpy as np
 
 st.title('Comparar Dois Textos')
 
-'Esta aplicação ajuda você a cruzar palavras de duas fontes de entrada e retornar as palavras em comum e diferentes.'
+'Esta aplicação ajuda você a cruzar as palavras de duas fontes de entrada e retornar as palavras em comum e diferentes.'
 
 st.subheader('Onde utilizar?')
 '\t I) Comparar os vocabulários ensinado e de uma música para aulas de inglês;'
