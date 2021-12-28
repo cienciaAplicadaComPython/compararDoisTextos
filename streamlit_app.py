@@ -60,7 +60,7 @@ def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoN
         break
       else:
         for carac in conteudo:
-          if carac in '''!...()[]{};:‘’'“”"\,<>./?@#$%^&*_~''':
+          if carac in '''!()[]{};:‘’'“”"\,<>./?@#$%^&*_~''':
             conteudo = conteudo.replace(carac, '')
         numpyPrimaria[posicao] = conteudo
     if posicao[0] == len(numpyPrimaria) - 1:
@@ -73,7 +73,7 @@ def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoN
         break
       else:
         for carac in conteudo:
-          if carac in '''!...()[]{};:‘’'“”"\,<>./?@#$%^&*_~''':
+          if carac in '''!()[]{};:‘’'“”"\,<>./?@#$%^&*_~''':
             conteudo = conteudo.replace(carac, '')
         numpySecundaria[posicao] = conteudo
     if posicao[0] == len(numpySecundaria) - 1:
@@ -162,9 +162,10 @@ if botaoFoiSelecionado:
     st.table(dataFrameDePalavrasDiferentes)
 
     'Algumas palavras podem ser mescladas durante a leitura dos arquivos devido à pontuação. Por exemplo:'
-    'i) station/hardware'
-    'ii) exemplo:água'
-    'Experimente escrever a pontuação entre espaços e tente novamente.'
+    'I) station/hardware'
+    'II) exemplo:água'
+    'III) produzindo...'
+    'Experimente escrever a pontuação separada da palavras por espaços e tente novamente.'
 
     st.download_button('Baixe as palavras comuns', data = dataFrameDePalavrasComuns.to_csv().encode('ISO-8859-1'), file_name = 'palavrasComuns.csv', mime = 'text/csv')
     st.download_button('Baixe as palavras diferentes', data = dataFrameDePalavrasDiferentes.to_csv().encode('ISO-8859-1'), file_name = 'palavrasDiferentes.csv', mime = 'text/csv') 
