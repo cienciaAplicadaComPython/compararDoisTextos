@@ -17,8 +17,10 @@ st.subheader('Como utilizar?')
 
 testeDeTextoNoNavegador = st.text_area('Teste:')
 textoNoNavegadorNumpy = str.split(testeDeTextoNoNavegador)
-textoNoNavegadorNumpy = np.fromstring(textoNoNavegadorNumpy)
 textoNoNavegadorNumpy
+textoNoNavegadorNumpy.ndim
+textoNoNavegadorNumpy.shape
+textoNoNavegadorNumpy.size
 
 st.subheader('Use o app!')
 'Anexe os arquivos:'
