@@ -9,7 +9,7 @@ def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoN
   #---------------------------------------------------------------------
   #Se houve envio de arquivos 
   if entradaDeTextoPrimariaPorArquivo:
-    dataframePrimaria = pd.read_csv(entradaDeTextoPrimariaPorArquivo, header = None, on_bad_lines = 'skip').stack()
+    dataframePrimaria = pd.read_csv(entradaDeTextoPrimariaPorArquivo, sep = ';', header = None).stack()
     numpyPrimaria = dataframePrimaria.to_numpy()
     #---------------------------------------------------------------------
     #Separa o arquivo em palavras de acordo com os espaços
@@ -25,7 +25,7 @@ def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoN
     #---------------------------------------------------------------------
 
   if entradaDeTextoSecundariaPorArquivo:
-    dataframeSecundaria = pd.read_csv(entradaDeTextoSecundariaPorArquivo, header = None, on_bad_lines = 'skip').stack()
+    dataframeSecundaria = pd.read_csv(entradaDeTextoSecundariaPorArquivo, sep = ';', header = None).stack()
     numpySecundaria = dataframeSecundaria.to_numpy()
     #---------------------------------------------------------------------
     #Separa o arquivo em palavras de acordo com os espaços
