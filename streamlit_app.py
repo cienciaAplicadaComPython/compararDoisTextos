@@ -40,6 +40,12 @@ if botaoFoiSelecionado:
   #---------------------------------------------------------------------
   
   #---------------------------------------------------------------------
+  #Caso duas primeiras ou segundas entradas existam:
+  elif (entradaDeTextoPrimariaPorArquivo and entradaDeTextoPrimariaNoNavegador) or (entradaDeTextoSecundariaPorArquivo and entradaDeTextoSecundariaNoNavegador):
+    'Existem duas primeiras ou segundas entradas!'
+  #---------------------------------------------------------------------
+  
+  #---------------------------------------------------------------------
   #Caso duas entradas sejam enviadas 
   else:
     #---------------------------------------------------------------------
@@ -47,33 +53,36 @@ if botaoFoiSelecionado:
     if entradaDeTextoPrimariaPorArquivo:
       dataframePrimaria = pd.read_csv(entradaDeTextoPrimariaPorArquivo, header = None).stack()
       numpyPrimaria = dataframePrimaria.to_numpy()
+      #---------------------------------------------------------------------
+      #Separa o arquivo em palavras de acordo com os espaços
+      while True:
+        for posicao, conteudo in np.ndenumerate(numpyPrimaria):
+          palavrasDeConteudo = conteudo.split(' ')
+          if len(palavrasDeConteudo) > 1:
+            numpyPrimaria = np.delete(numpyPrimaria, posicao)
+            numpyPrimaria = np.append(numpyPrimaria, palavrasDeConteudo)
+            break
+        if posicao[0] == len(numpyPrimaria) - 1:
+          break
+      #---------------------------------------------------------------------
+    #---------------------------------------------------------------------
+    
     if entradaDeTextoSecundariaPorArquivo:
       dataframeSecundaria = pd.read_csv(entradaDeTextoSecundariaPorArquivo, header = None).stack()
       numpySecundaria = dataframeSecundaria.to_numpy()
+      #---------------------------------------------------------------------
+      #Separa o arquivo em palavras de acordo com os espaços
+      while True:
+        for posicao, conteudo in np.ndenumerate(numpySecundaria):
+          palavrasDeConteudo = conteudo.split(' ')
+          if len(palavrasDeConteudo) > 1:
+            numpySecundaria = np.delete(numpySecundaria, posicao)
+            numpySecundaria = np.append(numpySecundaria, palavrasDeConteudo)
+            break
+        if posicao[0] == len(numpySecundaria) - 1:
+          break
+      #---------------------------------------------------------------------
     #--------------------------------------------------------------------- 
-    
-    #---------------------------------------------------------------------
-    #Separa os arquivos em palavras de acordo com os espaços
-    while True:
-      for posicao, conteudo in np.ndenumerate(numpyPrimaria):
-        palavrasDeConteudo = conteudo.split(' ')
-        if len(palavrasDeConteudo) > 1:
-          numpyPrimaria = np.delete(numpyPrimaria, posicao)
-          numpyPrimaria = np.append(numpyPrimaria, palavrasDeConteudo)
-          break
-      if posicao[0] == len(numpyPrimaria) - 1:
-        break
-    
-    while True:
-      for posicao, conteudo in np.ndenumerate(numpySecundaria):
-        palavrasDeConteudo = conteudo.split(' ')
-        if len(palavrasDeConteudo) > 1:
-          numpySecundaria = np.delete(numpySecundaria, posicao)
-          numpySecundaria = np.append(numpySecundaria, palavrasDeConteudo)
-          break
-      if posicao[0] == len(numpySecundaria) - 1:
-        break
-    #---------------------------------------------------------------------
     
     #---------------------------------------------------------------------
     #Se os textos foram inseridos diretamente no navegador 
