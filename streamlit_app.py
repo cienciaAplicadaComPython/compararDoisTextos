@@ -32,6 +32,7 @@ entradaDeTextoSecundariaNoNavegador = st.text_area('Segundo texto:')
 
 botaoFoiSelecionado = st.button('Comparar arquivos')
 
+@st.cache
 if botaoFoiSelecionado:
   #---------------------------------------------------------------------
   #Caso nenhuma ou somente uma entrada seja enviada
