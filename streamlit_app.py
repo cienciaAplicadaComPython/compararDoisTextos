@@ -13,7 +13,7 @@ st.subheader('Onde utilizar?')
 '\t IV) Identificar as palavras comuns entre dois diálogos.'
 
 st.subheader('Como utilizar?')
-'Faça o upload de dois arquivos de texto *TXT* contendo os textos para comparação e aperte o botão **Comparar arquivos**.'
+'Faça o upload de dois arquivos de texto *TXT* com os vocabulários, discursos, diálogos e outros para comparação ou digite-os no navegador e aperte o botão **Comparar arquivos**.'
 
 st.subheader('Use o app!')
 'Anexe os arquivos:'
