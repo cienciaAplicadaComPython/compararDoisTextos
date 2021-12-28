@@ -4,7 +4,7 @@ import numpy as np
 
 #---------------------------------------------------------------------
 #Função para comparar as entradas de texto
-@st.cache(persist = True)
+@st.cache
 def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador):
   #---------------------------------------------------------------------
   #Caso nenhuma ou somente uma entrada seja enviada
@@ -114,25 +114,10 @@ def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoN
      #---------------------------------------------------------------------
 
     #---------------------------------------------------------------------
-    #Expõe os resultados
-    'As seguintes palavras estão no primeiro e segundo arquivos:'
+    #Retorna os resultados
     dataFrameDePalavrasComuns = pd.DataFrame(palavrasComuns, index = range(1, len(palavrasComuns) + 1), columns = ['Palavras Comuns'])
-    st.table(dataFrameDePalavrasComuns)
-
-    'As seguintes palavras estão somente no segundo arquivo:'
     dataFrameDePalavrasDiferentes = pd.DataFrame(palavrasDiferentes, index = range(1, len(palavrasDiferentes) + 1), columns = ['Palavras Diferentes'])
-    st.table(dataFrameDePalavrasDiferentes)
-    #---------------------------------------------------------------------
-
-    'Algumas palavras podem ser mescladas durante a leitura dos arquivos devido à pontuação. Por exemplo:'
-    'i) station/hardware'
-    'ii) exemplo:água'
-    'Experimente escrever a pontuação entre espaços e tente novamente.'
-
-    #---------------------------------------------------------------------
-    #Baixa os arquivos TXT dos resultados
-    st.download_button('Baixe as palavras comuns', data = dataFrameDePalavrasComuns.to_csv().encode('ISO-8859-1'), file_name = 'palavrasComuns.csv', mime = 'text/csv')
-    st.download_button('Baixe as palavras diferentes', data = dataFrameDePalavrasDiferentes.to_csv().encode('ISO-8859-1'), file_name = 'palavrasDiferentes.csv', mime = 'text/csv')
+    return dataFrameDePalavrasComuns, dataFrameDePalavrasDiferentes
     #---------------------------------------------------------------------
 #---------------------------------------------------------------------
 
@@ -165,8 +150,22 @@ entradaDeTextoSecundariaNoNavegador = st.text_area('Segundo texto:')
 #---------------------------------------------------------------------
 
 #---------------------------------------------------------------------
-#Chama a função para comparar as duas entradas de texto
+#Chama a função para comparar as duas entradas de texto, expõe os resultados e permite baixá-los
 botaoFoiSelecionado = st.button('Comparar arquivos')
 if botaoFoiSelecionado:
   compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador)
+  
+  'As seguintes palavras estão no primeiro e segundo arquivos:'
+  st.table(dataFrameDePalavrasComuns)
+
+  'As seguintes palavras estão somente no segundo arquivo:'
+  st.table(dataFrameDePalavrasDiferentes)
+
+  'Algumas palavras podem ser mescladas durante a leitura dos arquivos devido à pontuação. Por exemplo:'
+  'i) station/hardware'
+  'ii) exemplo:água'
+  'Experimente escrever a pontuação entre espaços e tente novamente.'
+
+  st.download_button('Baixe as palavras comuns', data = dataFrameDePalavrasComuns.to_csv().encode('ISO-8859-1'), file_name = 'palavrasComuns.csv', mime = 'text/csv')
+  st.download_button('Baixe as palavras diferentes', data = dataFrameDePalavrasDiferentes.to_csv().encode('ISO-8859-1'), file_name = 'palavrasDiferentes.csv', mime = 'text/csv') 
 #---------------------------------------------------------------------
