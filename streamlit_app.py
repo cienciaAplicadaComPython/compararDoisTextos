@@ -35,132 +35,132 @@ if botaoFoiSelecionado:
   compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador)
 
 @st.cache
-def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador):
-  #---------------------------------------------------------------------
-  #Caso nenhuma ou somente uma entrada seja enviada
-  if not((entradaDeTextoPrimariaPorArquivo or entradaDeTextoPrimariaNoNavegador) and (entradaDeTextoSecundariaPorArquivo or entradaDeTextoSecundariaNoNavegador)):
-    'Uma ou as duas entradas estão faltando!'
-  #---------------------------------------------------------------------
-
-  #---------------------------------------------------------------------
-  #Caso duas primeiras ou segundas entradas existam:
-  elif (entradaDeTextoPrimariaPorArquivo and entradaDeTextoPrimariaNoNavegador) or (entradaDeTextoSecundariaPorArquivo and entradaDeTextoSecundariaNoNavegador):
-    'Existem duas primeiras ou segundas entradas!'
-  #---------------------------------------------------------------------
-
-  #---------------------------------------------------------------------
-  #Caso duas entradas sejam enviadas 
-  else:
+  def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador):
     #---------------------------------------------------------------------
-    #Se houve envio de arquivos 
-    if entradaDeTextoPrimariaPorArquivo:
-      dataframePrimaria = pd.read_csv(entradaDeTextoPrimariaPorArquivo, header = None).stack()
-      numpyPrimaria = dataframePrimaria.to_numpy()
+    #Caso nenhuma ou somente uma entrada seja enviada
+    if not((entradaDeTextoPrimariaPorArquivo or entradaDeTextoPrimariaNoNavegador) and (entradaDeTextoSecundariaPorArquivo or entradaDeTextoSecundariaNoNavegador)):
+      'Uma ou as duas entradas estão faltando!'
+    #---------------------------------------------------------------------
+
+    #---------------------------------------------------------------------
+    #Caso duas primeiras ou segundas entradas existam:
+    elif (entradaDeTextoPrimariaPorArquivo and entradaDeTextoPrimariaNoNavegador) or (entradaDeTextoSecundariaPorArquivo and entradaDeTextoSecundariaNoNavegador):
+      'Existem duas primeiras ou segundas entradas!'
+    #---------------------------------------------------------------------
+
+    #---------------------------------------------------------------------
+    #Caso duas entradas sejam enviadas 
+    else:
       #---------------------------------------------------------------------
-      #Separa o arquivo em palavras de acordo com os espaços
+      #Se houve envio de arquivos 
+      if entradaDeTextoPrimariaPorArquivo:
+        dataframePrimaria = pd.read_csv(entradaDeTextoPrimariaPorArquivo, header = None).stack()
+        numpyPrimaria = dataframePrimaria.to_numpy()
+        #---------------------------------------------------------------------
+        #Separa o arquivo em palavras de acordo com os espaços
+        while True:
+          for posicao, conteudo in np.ndenumerate(numpyPrimaria):
+            palavrasDeConteudo = conteudo.split(' ')
+            if len(palavrasDeConteudo) > 1:
+              numpyPrimaria = np.delete(numpyPrimaria, posicao)
+              numpyPrimaria = np.append(numpyPrimaria, palavrasDeConteudo)
+              break
+          if posicao[0] == len(numpyPrimaria) - 1:
+            break
+        #---------------------------------------------------------------------
+      #---------------------------------------------------------------------
+
+      if entradaDeTextoSecundariaPorArquivo:
+        dataframeSecundaria = pd.read_csv(entradaDeTextoSecundariaPorArquivo, header = None).stack()
+        numpySecundaria = dataframeSecundaria.to_numpy()
+        #---------------------------------------------------------------------
+        #Separa o arquivo em palavras de acordo com os espaços
+        while True:
+          for posicao, conteudo in np.ndenumerate(numpySecundaria):
+            palavrasDeConteudo = conteudo.split(' ')
+            if len(palavrasDeConteudo) > 1:
+              numpySecundaria = np.delete(numpySecundaria, posicao)
+              numpySecundaria = np.append(numpySecundaria, palavrasDeConteudo)
+              break
+          if posicao[0] == len(numpySecundaria) - 1:
+            break
+        #---------------------------------------------------------------------
+      #--------------------------------------------------------------------- 
+
+      #---------------------------------------------------------------------
+      #Se os textos foram inseridos diretamente no navegador 
+      if entradaDeTextoPrimariaNoNavegador:
+        palavrasDaEntradaDeTextoPrimariaNoNavegador = str.split(entradaDeTextoPrimariaNoNavegador)
+        numpyPrimaria = np.array(palavrasDaEntradaDeTextoPrimariaNoNavegador)
+      if entradaDeTextoSecundariaNoNavegador:
+        palavrasDaEntradaDeTextoSecundariaNoNavegador = str.split(entradaDeTextoSecundariaNoNavegador)
+        numpySecundaria = np.array(palavrasDaEntradaDeTextoSecundariaNoNavegador)
+      #---------------------------------------------------------------------
+
+      #---------------------------------------------------------------------
+      #Deleta os índices vazios e as pontuações dos arquivos
       while True:
         for posicao, conteudo in np.ndenumerate(numpyPrimaria):
-          palavrasDeConteudo = conteudo.split(' ')
-          if len(palavrasDeConteudo) > 1:
+          if conteudo == '':
             numpyPrimaria = np.delete(numpyPrimaria, posicao)
-            numpyPrimaria = np.append(numpyPrimaria, palavrasDeConteudo)
             break
+          else:
+            for carac in conteudo:
+              if carac in '''!()[]{};:'"\,<>./?@#$%^&*_~''':
+                conteudo = conteudo.replace(carac, '')
+            numpyPrimaria[posicao] = conteudo
         if posicao[0] == len(numpyPrimaria) - 1:
           break
-      #---------------------------------------------------------------------
-    #---------------------------------------------------------------------
 
-    if entradaDeTextoSecundariaPorArquivo:
-      dataframeSecundaria = pd.read_csv(entradaDeTextoSecundariaPorArquivo, header = None).stack()
-      numpySecundaria = dataframeSecundaria.to_numpy()
-      #---------------------------------------------------------------------
-      #Separa o arquivo em palavras de acordo com os espaços
       while True:
         for posicao, conteudo in np.ndenumerate(numpySecundaria):
-          palavrasDeConteudo = conteudo.split(' ')
-          if len(palavrasDeConteudo) > 1:
-            numpySecundaria = np.delete(numpySecundaria, posicao)
-            numpySecundaria = np.append(numpySecundaria, palavrasDeConteudo)
+          if conteudo == '':
+            numpySecundaria = np.delete(numpySecundaria, posicao) 
             break
+          else:
+            for carac in conteudo:
+              if carac in '''!()[]{};:'"\,<>./?@#$%^&*_~''':
+                conteudo = conteudo.replace(carac, '')
+            numpySecundaria[posicao] = conteudo
         if posicao[0] == len(numpySecundaria) - 1:
           break
       #---------------------------------------------------------------------
-    #--------------------------------------------------------------------- 
 
-    #---------------------------------------------------------------------
-    #Se os textos foram inseridos diretamente no navegador 
-    if entradaDeTextoPrimariaNoNavegador:
-      palavrasDaEntradaDeTextoPrimariaNoNavegador = str.split(entradaDeTextoPrimariaNoNavegador)
-      numpyPrimaria = np.array(palavrasDaEntradaDeTextoPrimariaNoNavegador)
-    if entradaDeTextoSecundariaNoNavegador:
-      palavrasDaEntradaDeTextoSecundariaNoNavegador = str.split(entradaDeTextoSecundariaNoNavegador)
-      numpySecundaria = np.array(palavrasDaEntradaDeTextoSecundariaNoNavegador)
-    #---------------------------------------------------------------------
+      #---------------------------------------------------------------------
+      #Deleta as palavras repetidas
+      numpyPrimaria = np.unique(numpyPrimaria)
+      numpySecundaria = np.unique(numpySecundaria)
+      #---------------------------------------------------------------------
 
-    #---------------------------------------------------------------------
-    #Deleta os índices vazios e as pontuações dos arquivos
-    while True:
-      for posicao, conteudo in np.ndenumerate(numpyPrimaria):
-        if conteudo == '':
-          numpyPrimaria = np.delete(numpyPrimaria, posicao)
-          break
+      #---------------------------------------------------------------------
+      # Salva as palavras comuns e diferentes um duas listas
+      palavrasComuns = []
+      palavrasDiferentes = []
+      for _, palavraDoArquivo2 in np.ndenumerate(numpySecundaria):
+        if np.any(numpyPrimaria == palavraDoArquivo2):
+          palavrasComuns.append(palavraDoArquivo2)
         else:
-          for carac in conteudo:
-            if carac in '''!()[]{};:'"\,<>./?@#$%^&*_~''':
-              conteudo = conteudo.replace(carac, '')
-          numpyPrimaria[posicao] = conteudo
-      if posicao[0] == len(numpyPrimaria) - 1:
-        break
+          palavrasDiferentes.append(palavraDoArquivo2)
+       #---------------------------------------------------------------------
 
-    while True:
-      for posicao, conteudo in np.ndenumerate(numpySecundaria):
-        if conteudo == '':
-          numpySecundaria = np.delete(numpySecundaria, posicao) 
-          break
-        else:
-          for carac in conteudo:
-            if carac in '''!()[]{};:'"\,<>./?@#$%^&*_~''':
-              conteudo = conteudo.replace(carac, '')
-          numpySecundaria[posicao] = conteudo
-      if posicao[0] == len(numpySecundaria) - 1:
-        break
-    #---------------------------------------------------------------------
+      #---------------------------------------------------------------------
+      #Expõe os resultados
+      'As seguintes palavras estão no primeiro e segundo arquivos:'
+      dataFrameDePalavrasComuns = pd.DataFrame(palavrasComuns, index = range(1, len(palavrasComuns) + 1), columns = ['Palavras Comuns'])
+      st.table(dataFrameDePalavrasComuns)
 
-    #---------------------------------------------------------------------
-    #Deleta as palavras repetidas
-    numpyPrimaria = np.unique(numpyPrimaria)
-    numpySecundaria = np.unique(numpySecundaria)
-    #---------------------------------------------------------------------
+      'As seguintes palavras estão somente no segundo arquivo:'
+      dataFrameDePalavrasDiferentes = pd.DataFrame(palavrasDiferentes, index = range(1, len(palavrasDiferentes) + 1), columns = ['Palavras Diferentes'])
+      st.table(dataFrameDePalavrasDiferentes)
+      #---------------------------------------------------------------------
 
-    #---------------------------------------------------------------------
-    # Salva as palavras comuns e diferentes um duas listas
-    palavrasComuns = []
-    palavrasDiferentes = []
-    for _, palavraDoArquivo2 in np.ndenumerate(numpySecundaria):
-      if np.any(numpyPrimaria == palavraDoArquivo2):
-        palavrasComuns.append(palavraDoArquivo2)
-      else:
-        palavrasDiferentes.append(palavraDoArquivo2)
-     #---------------------------------------------------------------------
+      'Algumas palavras podem ser mescladas durante a leitura dos arquivos devido à pontuação. Por exemplo:'
+      'i) station/hardware'
+      'ii) exemplo:água'
+      'Experimente escrever a pontuação entre espaços e tente novamente.'
 
-    #---------------------------------------------------------------------
-    #Expõe os resultados
-    'As seguintes palavras estão no primeiro e segundo arquivos:'
-    dataFrameDePalavrasComuns = pd.DataFrame(palavrasComuns, index = range(1, len(palavrasComuns) + 1), columns = ['Palavras Comuns'])
-    st.table(dataFrameDePalavrasComuns)
-
-    'As seguintes palavras estão somente no segundo arquivo:'
-    dataFrameDePalavrasDiferentes = pd.DataFrame(palavrasDiferentes, index = range(1, len(palavrasDiferentes) + 1), columns = ['Palavras Diferentes'])
-    st.table(dataFrameDePalavrasDiferentes)
-    #---------------------------------------------------------------------
-
-    'Algumas palavras podem ser mescladas durante a leitura dos arquivos devido à pontuação. Por exemplo:'
-    'i) station/hardware'
-    'ii) exemplo:água'
-    'Experimente escrever a pontuação entre espaços e tente novamente.'
-
-    #---------------------------------------------------------------------
-    #Baixa os arquivos TXT dos resultados
-    st.download_button('Baixe as palavras comuns', data = dataFrameDePalavrasComuns.to_csv().encode('ISO-8859-1'), file_name = 'palavrasComuns.csv', mime = 'text/csv')
-    st.download_button('Baixe as palavras diferentes', data = dataFrameDePalavrasDiferentes.to_csv().encode('ISO-8859-1'), file_name = 'palavrasDiferentes.csv', mime = 'text/csv')
-    #---------------------------------------------------------------------
+      #---------------------------------------------------------------------
+      #Baixa os arquivos TXT dos resultados
+      st.download_button('Baixe as palavras comuns', data = dataFrameDePalavrasComuns.to_csv().encode('ISO-8859-1'), file_name = 'palavrasComuns.csv', mime = 'text/csv')
+      st.download_button('Baixe as palavras diferentes', data = dataFrameDePalavrasDiferentes.to_csv().encode('ISO-8859-1'), file_name = 'palavrasDiferentes.csv', mime = 'text/csv')
+      #---------------------------------------------------------------------
