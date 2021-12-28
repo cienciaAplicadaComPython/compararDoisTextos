@@ -2,14 +2,22 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title('Tenho vocabulário para isso?')
+st.title('Comparar Dois Textos')
 
 'Esta aplicação ajuda você a cruzar palavras de duas fontes de entrada e retornar as palavras em comum e diferentes.'
 
-'Casos de uso:'
-'\ti) Comparar os vocabulários ensinado e de uma música para aulas de inglês;'
-'\tii) Encontrar palavras desconhecidas em um texto;'
-'\tiii) Antecipar o vocabulário necessário para um filme.'
+st.subheader('Onde utilizar?')
+'\t I) Comparar os vocabulários ensinado e de uma música para aulas de inglês;'
+'\t II) Visualizar as palavras diferentes entre dois discursos;'
+'\t III) Antecipar o vocabulário necessário para um filme;'
+'\t IV) Identificar as palavras comuns entre dois diálogos.'
+
+st.subheader('Como utilizar?')
+'Faça o upload de dois arquivos de texto *TXT* contendo os textos para comparação e aperte o botão **Comparar arquivos**.'
+
+testeDeTextoNoNavegador = st.text_area('Teste:')
+textoNoNavegadorNumpy = np.fromstring(testeDeTextoNoNavegador)
+textoNoNavegadorNumpy
 
 st.subheader('Use o app!')
 'Anexe os arquivos:'
