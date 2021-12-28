@@ -17,6 +17,7 @@ st.subheader('Como utilizar?')
 
 testeDeTextoNoNavegador = st.text_area('Teste:')
 textoNoNavegadorNumpy = str.split(testeDeTextoNoNavegador)
+textoNoNavegadorNumpy = np.fromstring(textoNoNavegadorNumpy)
 textoNoNavegadorNumpy
 
 st.subheader('Use o app!')
