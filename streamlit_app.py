@@ -60,7 +60,7 @@ def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoN
         break
       else:
         for carac in conteudo:
-          if carac in '...''!()[]{};:‘’'“”"\,<>./?@#$%^&*_~''':
+          if carac in '''!...()[]{};:‘’'“”"\,<>./?@#$%^&*_~''':
             conteudo = conteudo.replace(carac, '')
         numpyPrimaria[posicao] = conteudo
     if posicao[0] == len(numpyPrimaria) - 1:
@@ -73,7 +73,7 @@ def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoN
         break
       else:
         for carac in conteudo:
-          if carac in '...''!()[]{};:‘’'“”"\,<>./?@#$%^&*_~''':
+          if carac in '''!...()[]{};:‘’'“”"\,<>./?@#$%^&*_~''':
             conteudo = conteudo.replace(carac, '')
         numpySecundaria[posicao] = conteudo
     if posicao[0] == len(numpySecundaria) - 1:
