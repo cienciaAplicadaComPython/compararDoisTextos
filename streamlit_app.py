@@ -2,38 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title('Comparar Dois Textos')
-
-'Esta aplicação ajuda você a cruzar as palavras de duas fontes de entrada e retornar as palavras em comum e diferentes.'
-
-st.subheader('Onde utilizar?')
-'\t I) Comparar os vocabulários ensinado e de uma música para aulas de inglês;'
-'\t II) Visualizar as palavras diferentes entre dois discursos;'
-'\t III) Antecipar o vocabulário necessário para um filme;'
-'\t IV) Identificar as palavras comuns entre dois diálogos.'
-
-st.subheader('Como utilizar?')
-'Faça o upload de dois arquivos de texto *TXT* com os vocabulários, discursos, diálogos e outros para comparação ou digite-os no navegador e aperte o botão **Comparar arquivos**.'
-
-st.subheader('Use o app!')
-'Anexe os arquivos:'
 #---------------------------------------------------------------------
-#Recebe arquivos por upload
-entradaDeTextoPrimariaPorArquivo = st.file_uploader('Primeiro arquivo:', type= ['txt'])
-entradaDeTextoSecundariaPorArquivo = st.file_uploader('Segundo arquivo:', type= ['txt'])
-#---------------------------------------------------------------------
-
-'Ou digite os textos:'
-#---------------------------------------------------------------------
-#Recebe os textos diretamente no navegador
-entradaDeTextoPrimariaNoNavegador = st.text_area('Primeiro texto:')
-entradaDeTextoSecundariaNoNavegador = st.text_area('Segundo texto:')
-#---------------------------------------------------------------------
-
-botaoFoiSelecionado = st.button('Comparar arquivos')
-if botaoFoiSelecionado:
-  compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador)
-
+#Função para comparar as entradas de texto
 #@st.cache
 def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador):
   #---------------------------------------------------------------------
@@ -164,3 +134,35 @@ def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoN
     st.download_button('Baixe as palavras comuns', data = dataFrameDePalavrasComuns.to_csv().encode('ISO-8859-1'), file_name = 'palavrasComuns.csv', mime = 'text/csv')
     st.download_button('Baixe as palavras diferentes', data = dataFrameDePalavrasDiferentes.to_csv().encode('ISO-8859-1'), file_name = 'palavrasDiferentes.csv', mime = 'text/csv')
     #---------------------------------------------------------------------
+#---------------------------------------------------------------------
+
+st.title('Comparar Dois Textos')
+
+'Esta aplicação ajuda você a cruzar as palavras de duas fontes de entrada e retornar as palavras em comum e diferentes.'
+
+st.subheader('Onde utilizar?')
+'\t I) Comparar os vocabulários ensinado e de uma música para aulas de inglês;'
+'\t II) Visualizar as palavras diferentes entre dois discursos;'
+'\t III) Antecipar o vocabulário necessário para um filme;'
+'\t IV) Identificar as palavras comuns entre dois diálogos.'
+
+st.subheader('Como utilizar?')
+'Faça o upload de dois arquivos de texto *TXT* com os vocabulários, discursos, diálogos e outros para comparação ou digite-os no navegador e aperte o botão **Comparar arquivos**.'
+
+st.subheader('Use o app!')
+'Anexe os arquivos:'
+#---------------------------------------------------------------------
+#Recebe arquivos por upload
+entradaDeTextoPrimariaPorArquivo = st.file_uploader('Primeiro arquivo:', type= ['txt'])
+entradaDeTextoSecundariaPorArquivo = st.file_uploader('Segundo arquivo:', type= ['txt'])
+#---------------------------------------------------------------------
+
+'Ou digite os textos:'
+#---------------------------------------------------------------------
+#Recebe os textos diretamente no navegador
+entradaDeTextoPrimariaNoNavegador = st.text_area('Primeiro texto:')
+entradaDeTextoSecundariaNoNavegador = st.text_area('Segundo texto:')
+#---------------------------------------------------------------------
+
+botaoFoiSelecionado = st.button('Comparar arquivos', on_call = compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoNavegador, entradaDeTextoSecundariaPorArquivo, entradaDeTextoSecundariaNoNavegador))
+  
