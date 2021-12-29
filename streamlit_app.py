@@ -105,6 +105,8 @@ def compararArquivos(entradaDeTextoPrimariaPorArquivo, entradaDeTextoPrimariaNoN
   #---------------------------------------------------------------------
 #---------------------------------------------------------------------
 
+st.set_page_config(page_title = 'Comparar Dois Textos', page_icon = ':scroll:')
+
 st.title('Comparar Dois Textos')
 
 'Esta aplicação ajuda você a cruzar as palavras de duas fontes de entrada e retornar as palavras em comum e diferentes.'
